@@ -94,16 +94,7 @@
                 <div class="rs-theme-settings">
                     <div class="rs-theme-settings-wrapper">
                         <div class="rs-theme-settings-open">
-                            <button
-                                type="button"
-                                class="rs-theme-settings-open-btn">
-                                <span class="rs-theme-settings-gear">
-                                    <i class="ri-settings-2-line"></i>
-                                </span>
-                                <span class="rs-theme-settings-close">
-                                    <i class="ri-close-line"></i>
-                                </span>
-                            </button>
+
 
                         </div>
                     </div>
