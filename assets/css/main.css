@@ -3981,7 +3981,7 @@ input[type=checkbox]~label:hover {
     height: 35px;
     box-sizing: border-box;
     border-radius: 50%;
-    background-color: #E40101;
+
     animation: rs-pulse 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 
@@ -3993,7 +3993,7 @@ input[type=checkbox]~label:hover {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #E40101;
+
     border-radius: 50%;
     animation: circle 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
 }
