@@ -8334,12 +8334,13 @@ html.lenis body {
 
 /* HEADER CSS */
 
-.main-menu ul li.active>a {
-    color: var(--rs-theme-yellow);
+.main-menu ul li.active > a,
+.main-menu ul li.current-menu-item > a {
+    color: var(--rs-theme-primary);
 }
 
 .main-menu ul li a.active {
-    color: var(--rs-theme-yellow);
+    color: var(--rs-theme-primary);
 }
 
 .main-menu ul li ul.submenu li.active>a {
