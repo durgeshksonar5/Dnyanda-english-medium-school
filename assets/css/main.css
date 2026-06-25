@@ -2615,7 +2615,9 @@ textarea:focus {
 }
 
 .offcanvas-logo a img {
-    width: 150px;
+    width: 100px;
+    height: auto;
+    object-fit: contain;
 }
 
 .offcanvas-logo .logo-white {
@@ -5594,6 +5596,34 @@ html.lenis body {
 .rs-header-two .header-logo {
     width: 100px;
     margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sticky (scroll) header logo — compact size */
+#rs-sticky-header .header-logo img {
+    width: 95px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Main (visible) header logo inside pentagon wrapper */
+.rs-header-two .header-wrapper:not(#rs-sticky-header .header-wrapper) .header-logo img,
+.rs-header-two:not(.rs-sticky-header) .header-logo img {
+    width: 105px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* General fallback for Dnyanda logo in main header */
+.rs-header-two .header-logo-wrapper .header-logo img {
+    width: 105px;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 @media only screen and (max-width: 1199px) {
