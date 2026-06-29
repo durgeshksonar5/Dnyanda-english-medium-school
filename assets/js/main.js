@@ -155,11 +155,15 @@
         /* ==================================================
             # Banner Carousel
          ===============================================*/
+        const bannerFadeSlides = document.querySelectorAll('.banner-fade .swiper-slide').length;
         const bannerFade = new Swiper(".banner-fade", {
             // Optional parameters
             direction: "horizontal",
-            loop: true,
-            autoplay: true,
+            loop: bannerFadeSlides > 1,
+            autoplay: bannerFadeSlides > 1 ? {
+                delay: 5000,
+                disableOnInteraction: false,
+            } : false,
             effect: "fade",
             fadeEffect: {
                 crossFade: true

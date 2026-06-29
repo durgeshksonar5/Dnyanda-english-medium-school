@@ -25,6 +25,116 @@
     <link href="assets/vendor/plugins/unit-test.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    
+    <!-- Custom Hero Form Styles -->
+    <style>
+        .hero-form-box {
+            background: #ffffff !important;
+            border: 1px solid var(--border-color, #dde4d8) !important;
+            padding: 24px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 15px 40px rgba(13, 43, 51, 0.15) !important;
+            position: relative;
+            z-index: 10;
+        }
+        .hero-form-box .form-header h3 {
+            color: var(--color-secondary, #1F7A8C) !important;
+            font-weight: 700 !important;
+            margin-bottom: 5px !important;
+            font-size: 22px !important;
+            text-transform: none !important;
+        }
+        .hero-form-box .form-header p {
+            color: var(--text-color, #555555) !important;
+            font-size: 13px !important;
+        }
+        .hero-form-box .form-control,
+        .hero-form-box select {
+            background: #f8faf6 !important;
+            border: 1px solid var(--border-color, #dde4d8) !important;
+            border-radius: 6px !important;
+            color: #333 !important;
+            padding: 10px 12px 10px 38px !important;
+            font-size: 14px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            transition: all 0.3s ease !important;
+            font-weight: 500 !important;
+            height: auto !important;
+        }
+        .hero-form-box select {
+            padding-right: 35px !important;
+        }
+        .hero-form-box .form-control:focus,
+        .hero-form-box select:focus,
+        .hero-form-box .nice-select:focus {
+            outline: none !important;
+            border-color: var(--color-secondary, #1F7A8C) !important;
+            box-shadow: 0 0 8px rgba(31, 122, 140, 0.2) !important;
+            background: #ffffff !important;
+        }
+        .hero-form-box label {
+            color: var(--color-dark, #0D2B33) !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            margin-bottom: 6px !important;
+            display: block !important;
+            text-align: left !important;
+        }
+        /* Nice Select integration styles */
+        .hero-form-box .nice-select {
+            background: #f8faf6 !important;
+            border: 1px solid var(--border-color, #dde4d8) !important;
+            border-radius: 6px !important;
+            color: #333 !important;
+            padding: 10px 12px 10px 38px !important;
+            font-size: 14px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            transition: all 0.3s ease !important;
+            font-weight: 500 !important;
+            height: auto !important;
+            line-height: 20px !important;
+        }
+        .hero-form-box .nice-select .current {
+            color: #333 !important;
+        }
+        .hero-form-box .nice-select::after {
+            right: 15px !important;
+        }
+        .hero-form-box .nice-select .list {
+            width: 100% !important;
+            border-radius: 6px !important;
+            margin-top: 5px !important;
+        }
+        /* Solid Brand Button Styles */
+        .hero-form-box .btn-submit-hero {
+            background-color: var(--color-secondary, #1F7A8C) !important;
+            color: #ffffff !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            font-weight: 700 !important;
+            border-radius: 6px !important;
+            font-size: 15px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            width: 100% !important;
+            box-shadow: 0 5px 15px rgba(31, 122, 140, 0.2) !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+        }
+        .hero-form-box .btn-submit-hero:hover {
+            background-color: var(--color-primary, #A8C814) !important;
+            box-shadow: 0 5px 15px rgba(168, 200, 20, 0.3) !important;
+            color: #ffffff !important;
+        }
+        @media (max-width: 991px) {
+            .hero-form-box {
+                margin-top: 40px !important;
+                padding: 20px !important;
+            }
+        }
+    </style>
     <!-- ========== End Stylesheet ========== -->
 
 </head>
@@ -136,15 +246,14 @@
     </header>
     <!-- End Header -->
 
-    <!-- Start Banner Area 
-    ============================================= -->
+    <!-- Start Banner Area  -->
     <div class="banner-area banner-style-seven-area navigation-circle zoom-effect overflow-hidden text-light">
         <div class="banner-round-shape"></div>
         <div class="banner-fade">
             <div class="swiper-wrapper">
                 <!-- Single Item -->
                 <div class="swiper-slide banner-style-seven">
-                    <div class="banner-thumb bg-cover shadow dark" style="background: url(assets/school-main.JPG);"></div>
+                    <div class="banner-thumb bg-cover shadow dark" style="background: url(assets/dnyanda-building.png);"></div>
                     <div class="container">
                         <div class="banner-style-seven-info">
 
@@ -166,19 +275,48 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 offset-lg-1">
-                                    <div class="right-info">
-                                        <ul>
-                                            <li>
-                                                <h5>Established</h5>
-                                                <p>In 2021</p>
-                                            </li>
-                                            <li>
-                                                <h5>Grades</h5>
-                                                <p>Nursery to Grade V</p>
-                                            </li>
-                                        </ul>
-                                        <img src="assets/images/shape/25.png" alt="Shape">
+                                <div class="col-lg-5">
+                                    <div class="hero-form-box wow fadeInRight" data-wow-delay="300ms">
+                                        <div class="form-header" style="margin-bottom: 20px; text-align: center;">
+                                            <h3>Admission Enquiry</h3>
+                                            <p style="margin: 0; line-height: 1.4;">Fill out the form below and we will get back to you shortly.</p>
+                                        </div>
+                                        <form action="#" method="POST">
+                                            <div class="form-group" style="margin-bottom: 15px;">
+                                                <label for="hero-parent-name">Parent's Name</label>
+                                                <div style="position: relative;">
+                                                    <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #666; font-size: 14px; z-index: 5;"><i class="fa fa-user"></i></span>
+                                                    <input class="form-control" id="hero-parent-name" name="parent-name" type="text" placeholder="Enter Parent's Full Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: 15px;">
+                                                <label for="hero-phone">Phone Number</label>
+                                                <div style="position: relative;">
+                                                    <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #666; font-size: 14px; z-index: 5;"><i class="fa fa-phone"></i></span>
+                                                    <input class="form-control" id="hero-phone" name="phone" type="tel" placeholder="Enter 10-Digit Mobile Number" pattern="[0-9]{10}" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: 20px;">
+                                                <label for="hero-grade">Select Grade</label>
+                                                <div style="position: relative;">
+                                                    <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #666; font-size: 14px; z-index: 5;"><i class="fa fa-graduation-cap"></i></span>
+                                                    <select id="hero-grade" name="grade" required style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 15px center; background-size: 14px;">
+                                                        <option value="" disabled selected>Choose Grade for Admission</option>
+                                                        <option value="Nursery">Nursery / Preschool</option>
+                                                        <option value="LKG">LKG</option>
+                                                        <option value="UKG">UKG</option>
+                                                        <option value="Grade I">Grade I</option>
+                                                        <option value="Grade II">Grade II</option>
+                                                        <option value="Grade III">Grade III</option>
+                                                        <option value="Grade IV">Grade IV</option>
+                                                        <option value="Grade V">Grade V</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-submit-hero">
+                                                <i class="fa fa-paper-plane" style="margin-right: 8px;"></i> Submit Inquiry
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -191,11 +329,10 @@
     </div>
     <!-- End Banner Area -->
 
-    <!-- Start About 
-    ============================================= -->
+    <!-- Start About -->
     <div class="about-style-six-area default-padding bg-gray-gradient-secondary" id="about">
         <div class="about-style-six-thumb">
-            <img class="wow fadeInUp" src="assets/DSC09718.JPG" alt="About Image">
+            <img class="wow fadeInUp" src="assets/building-01.png" alt="About Image">
             <a href="about.html" class="round-text">
                 <img src="assets/images/illustration/12.png" alt="Badge text">
                 <i class="fa-solid fa-arrow-right-long"></i>
@@ -207,7 +344,7 @@
                     <div class="about-style-six-info pl-50 pl-md-0 pl-xs-0">
                         <div class="top-info wow fadeInUp mb-30">
                             <h2>Since <strong>2021</strong></h2>
-                            <img src="assets/school-main.JPG" alt="About Image Detail">
+                            <img src="assets/dnyanda-main-building.png" alt="About Image Detail">
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="300ms">
                             <h4 class="sub-title">Welcome to Dnyanda English Medium School</h4>
@@ -945,7 +1082,7 @@
     <script src="assets/vendor/plugins/jquery.easing.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/plugins/progress-bar.min.js"></script>
-    <script src="assets/vendor/plugins/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/plugins/isotope.pkgd.min.js"></script>x
     <script src="assets/vendor/plugins/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/plugins/magnific-popup.min.js"></script>
     <script src="assets/vendor/plugins/count-to.js"></script>

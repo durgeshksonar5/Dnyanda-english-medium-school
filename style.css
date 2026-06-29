@@ -2,106 +2,65 @@
 
 Template Name: Edufix - Education HTML Template
 Author: validtheme
-Description:
+Description: Custom Transitions & Smooth Scroll Enhancements
 Version: 1.0
 
-Main Font    : Outfit
-Main Color   : #2f57ef
+------------------------------------- */
 
--------------------------------------
+/* 1. Global Smooth Scroll & Offset for Sticky Header */
+html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 95px !important; /* Ensures section titles are never hidden behind the sticky navbar */
+}
 
-[Typography]
+/* 2. Ultra-Smooth Premium Section Transitions (WOW.js / Animate.css overrides) */
+.wow {
+    animation-duration: 1.2s !important; /* Slightly longer duration for a premium, elegant feel */
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000) !important; /* Out-Cubic easing for natural deceleration */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
 
-Body copy:    15px 'Outfit', sans-serif
-Header:     36px 'Outfit', sans-serif
-Input, textarea:  15px 'Outfit', sans-serif
-Sidebar heading:  20px 'Outfit', sans-serif
+/* 3. Smooth Hover Transitions for Buttons and Interactive Cards */
+.btn, 
+.feature-style-two-item, 
+.faculty-style-one-item, 
+.home-blog-style-two-item,
+.hero-form-box,
+a {
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
 
->>> TABLE OF CONTENTS:
-=======================
-        
-    01. Template default css
-        - Animations
-        - General
-        - Section Title
-        - Video Button
-        - Typography
-        - Tables
-        - Forms
-        - Buttons
-        - Pagination
-        - Colors
-        - Accordion
-        - Tabs
-    02. Preloader
-    03. Topbar
-    04 Navbar
-        - Navbar Default
-        - Navbar Transparent
-        - Navbar Sticky
-        - Navbar Box
-    05. Banner
-        - Banner Style One
-        - Banner Style Two
-        - Banner Style Three
-        - Banner Style Four
-        - Banner Style Five
-        - Banner Style Six
-        - Banner Style Seven
-        - Banner Style Eight
-    06. About Us
-        - Version One
-        - Version Two
-        - Version Three
-        - Version Four
-    07. Category
-        - Version One
-        - Version Two
-        - Version Three
-    08. Courses
-        - Version One
-        - Version Two
-        - Version Three
-        - Version Four
-        - Version Five
-        - Version Six
-        - Course Single
-    09. Gallery
-    10. Advisor
-        - Version One
-        - Version Two
-        - Advisor Details
-    11. Event
-        - Version One
-        - Version Two
-        - Version Three
-        - Version Four
-        - Event Details
-    12. Zoom Meeting
-        - Version One
-        - Zoom Meeting Details
-    13. Testimonials
-        - Version One
-        - Version Two
-        - Version Three
-    14. Why Choose Us
-    15. Privacy Policy
-    16. Fun Factor
-    17. FAQ
-    18. Login
-    19. Register
-    20. Blog
-        - Standard
-        - Left Sidebar
-        - Right Sidebar
-        - Single
-    21. Error 404
-    22. Footer
-    23. PHP Contact Form
-    24. Others
+/* 4. Soften the reveal animations to prevent harsh layout flashes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 
-*/
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 
-/*
-** General Styles for HTML tags
-*/
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
