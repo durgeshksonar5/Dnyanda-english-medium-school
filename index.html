@@ -54,7 +54,7 @@
             border: 1px solid var(--border-color, #dde4d8) !important;
             border-radius: 6px !important;
             color: #333 !important;
-            padding: 10px 12px 10px 38px !important;
+            padding: 12px 15px 12px 55px !important;
             font-size: 14px !important;
             width: 100% !important;
             box-sizing: border-box !important;
@@ -87,7 +87,7 @@
             border: 1px solid var(--border-color, #dde4d8) !important;
             border-radius: 6px !important;
             color: #333 !important;
-            padding: 10px 12px 10px 38px !important;
+            padding: 12px 15px 12px 55px !important;
             font-size: 14px !important;
             width: 100% !important;
             box-sizing: border-box !important;
@@ -106,6 +106,17 @@
             width: 100% !important;
             border-radius: 6px !important;
             margin-top: 5px !important;
+        }
+        /* Input Icon Positioning */
+        .hero-form-box .input-icon {
+            position: absolute !important;
+            left: 20px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: #777777 !important;
+            font-size: 15px !important;
+            z-index: 5 !important;
+            pointer-events: none !important;
         }
         /* Solid Brand Button Styles */
         .hero-form-box .btn-submit-hero {
@@ -285,22 +296,22 @@
                                             <div class="form-group" style="margin-bottom: 15px;">
                                                 <label for="hero-parent-name">Parent's Name</label>
                                                 <div style="position: relative;">
-                                                    <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #666; font-size: 14px; z-index: 5;"><i class="fa fa-user"></i></span>
-                                                    <input class="form-control" id="hero-parent-name" name="parent-name" type="text" placeholder="Enter Parent's Full Name" required>
+                                                    <span class="input-icon"><i class="fa fa-user"></i></span>
+                                                    <input class="form-control" id="hero-parent-name" name="parent-name" type="text" placeholder="Enter Parent's Full Name" required style="padding-left: 55px !important;">
                                                 </div>
                                             </div>
                                             <div class="form-group" style="margin-bottom: 15px;">
                                                 <label for="hero-phone">Phone Number</label>
                                                 <div style="position: relative;">
-                                                    <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #666; font-size: 14px; z-index: 5;"><i class="fa fa-phone"></i></span>
-                                                    <input class="form-control" id="hero-phone" name="phone" type="tel" placeholder="Enter 10-Digit Mobile Number" pattern="[0-9]{10}" required>
+                                                    <span class="input-icon"><i class="fa fa-phone"></i></span>
+                                                    <input class="form-control" id="hero-phone" name="phone" type="tel" placeholder="Enter 10-Digit Mobile Number" pattern="[0-9]{10}" required style="padding-left: 55px !important;">
                                                 </div>
                                             </div>
                                             <div class="form-group" style="margin-bottom: 20px;">
                                                 <label for="hero-grade">Select Grade</label>
                                                 <div style="position: relative;">
-                                                    <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #666; font-size: 14px; z-index: 5;"><i class="fa fa-graduation-cap"></i></span>
-                                                    <select id="hero-grade" name="grade" required style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 15px center; background-size: 14px;">
+                                                    <span class="input-icon"><i class="fa fa-graduation-cap"></i></span>
+                                                    <select id="hero-grade" name="grade" required style="padding-left: 55px !important; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 15px center; background-size: 14px;">
                                                         <option value="" disabled selected>Choose Grade for Admission</option>
                                                         <option value="Nursery">Nursery / Preschool</option>
                                                         <option value="LKG">LKG</option>
@@ -493,7 +504,7 @@
             <div class="row align-center">
                 <div class="col-xl-6 col-lg-5 pr-60 pr-md-15 pr-xs-15">
                     <div class="thumb-style-six wow fadeInUp">
-                        <img src="assets/Moral & Life Skills.JPG" alt="Vision and Mission image">
+                        <img src="assets/Inspiring Excellence & Values.png" alt="Vision and Mission image">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
@@ -582,7 +593,7 @@
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="faculty-style-one-item wow fadeInUp" data-wow-delay="100ms">
                             <div class="thumb">
-                                <img src="assets/CBSE-Oriented Academics.JPG" alt="Academics">
+                                <img src="assets/CBSE-Oriented Academics-01.png" alt="Academics">
                             </div>
                             <div class="info">
                                 <h4><a href="admission.html">CBSE-Oriented Academics</a></h4>
@@ -598,7 +609,7 @@
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="faculty-style-one-item wow fadeInUp" data-wow-delay="200ms">
                             <div class="thumb">
-                                <img src="assets/Activity-Based Learning.JPG" alt="Innovation">
+                                <img src="assets/Technology & Innovation.png" alt="Innovation">
                             </div>
                             <div class="info">
                                 <h4><a href="admission.html">Technology & Innovation</a></h4>
@@ -614,7 +625,7 @@
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="faculty-style-one-item wow fadeInUp" data-wow-delay="300ms">
                             <div class="thumb">
-                                <img src="assets/Robotics & Technology.JPG" alt="Arts and Sports">
+                                <img src="assets/Creative Arts & Sports.png" alt="Arts and Sports">
                             </div>
                             <div class="info">
                                 <h4><a href="admission.html">Creative Arts & Sports</a></h4>
@@ -639,7 +650,7 @@
             <div class="row align-center">
                 <div class="col-lg-5 col-md-12 mb-md-50">
                     <div class="thumb-style-six wow fadeInUp">
-                        <img src="assets/principle.JPG" alt="Principal Image" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                        <img src="assets/principle-new.png" alt="Principal Image" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
                     </div>
                 </div>
                 <div class="col-lg-7 pl-50 pl-md-15 pl-xs-15">
@@ -690,7 +701,7 @@
                 <div class="col-xl-4 col-md-6 col-lg-6 mb-30">
                     <div class="home-blog-style-two-item wow fadeInUp" data-wow-delay="100ms">
                         <div class="thumb">
-                            <img src="assets/learning.JPG" alt="Science and Robotics">
+                            <img src="assets/Robotics & Science Workshops.png" alt="Science and Robotics">
                             <ul class="blog-meta">
                                 <li><a href="admission.html">Science</a></li>
                                 <li><i class="fa-solid fa-gear"></i> Robotics</li>
@@ -711,7 +722,7 @@
                 <div class="col-xl-4 col-md-6 col-lg-6 mb-30">
                     <div class="home-blog-style-two-item wow fadeInUp" data-wow-delay="200ms">
                         <div class="thumb">
-                            <img src="assets/Activity-Based Learning.JPG" alt="Arts & Stories">
+                            <img src="assets/Arts, Crafts & Storytelling.png" alt="Arts & Stories">
                             <ul class="blog-meta">
                                 <li><a href="admission.html">Arts & Crafts</a></li>
                                 <li><i class="fa-solid fa-book-open"></i> Stories</li>
@@ -732,7 +743,7 @@
                 <div class="col-xl-4 col-md-6 col-lg-6 mb-30">
                     <div class="home-blog-style-two-item wow fadeInUp" data-wow-delay="300ms">
                         <div class="thumb">
-                            <img src="assets/group.jpeg" alt="Sports & Fitness">
+                            <img src="assets/Sports & Cultural Activities.png" alt="Sports & Fitness">
                             <ul class="blog-meta">
                                 <li><a href="admission.html">Sports</a></li>
                                 <li><i class="fa-solid fa-trophy"></i> Culture</li>
@@ -754,8 +765,7 @@
     </div>
     <!-- End Learning Beyond Classroom -->
 
-    <!-- Start Core Values
-    ============================================= -->
+    <!-- Start Core Values -->
     <div class="feature-style-two-area default-padding" id="core-values" style="background: var(--color-white);">
         <div class="container">
             <div class="row">
@@ -851,7 +861,7 @@
             <img src="assets/images/shape/59.png" alt="Shape">
         </div>
         <div class="container container-stage">
-            <div class="admission-form-items bg-cover wow fadeInUp" style="background-image: url(assets/1.JPG);">
+            <div class="admission-form-items bg-cover wow fadeInUp" style="background-image: url(assets/building-02.png);">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="admission-form-style-one" style="background: var(--color-white); padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
@@ -1082,7 +1092,7 @@
     <script src="assets/vendor/plugins/jquery.easing.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/plugins/progress-bar.min.js"></script>
-    <script src="assets/vendor/plugins/isotope.pkgd.min.js"></script>x
+    <script src="assets/vendor/plugins/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/plugins/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/plugins/magnific-popup.min.js"></script>
     <script src="assets/vendor/plugins/count-to.js"></script>
@@ -1130,6 +1140,20 @@
         });
     })();
     </script>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact-wrap">
+        <!-- Call Button -->
+        <a href="tel:+917557333222" class="floating-btn floating-call pulse" aria-label="Call Us">
+            <i class="fa-solid fa-phone"></i>
+            <span class="tooltip-text">Call Us Now</span>
+        </a>
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/917557333222?text=Hello,%20I%20am%20interested%20in%20admissions%20at%20Dnyanda%20English%20Medium%20School." target="_blank" class="floating-btn floating-whatsapp pulse" aria-label="WhatsApp Message">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="tooltip-text">WhatsApp Us</span>
+        </a>
+    </div>
 
 </body>
 
