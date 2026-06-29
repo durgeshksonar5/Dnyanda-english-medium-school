@@ -171,3 +171,85 @@ a {
     visibility: visible;
     opacity: 1;
 }
+
+/* 6. Core Values Cards Custom Styling */
+.value-card-teal {
+    background: rgba(31, 122, 140, 0.05) !important;
+    border: 1px solid rgba(31, 122, 140, 0.15) !important;
+    border-radius: 10px !important;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+.value-card-teal .icon {
+    color: var(--color-secondary, #1F7A8C) !important;
+}
+.value-card-teal h4 {
+    color: var(--color-dark, #0D2B33) !important;
+}
+.value-card-teal p {
+    color: var(--text-color, #555555) !important;
+}
+.value-card-teal:hover {
+    background: var(--color-secondary, #1F7A8C) !important;
+    border-color: var(--color-secondary, #1F7A8C) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 10px 25px rgba(31, 122, 140, 0.25) !important;
+}
+.value-card-teal:hover .icon,
+.value-card-teal:hover h4,
+.value-card-teal:hover p {
+    color: #ffffff !important;
+}
+
+.value-card-green {
+    background: rgba(168, 200, 20, 0.06) !important;
+    border: 1px solid rgba(168, 200, 20, 0.18) !important;
+    border-radius: 10px !important;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+.value-card-green .icon {
+    color: var(--color-primary, #A8C814) !important;
+}
+.value-card-green h4 {
+    color: var(--color-dark, #0D2B33) !important;
+}
+.value-card-green p {
+    color: var(--text-color, #555555) !important;
+}
+.value-card-green:hover {
+    background: var(--color-primary, #A8C814) !important;
+    border-color: var(--color-primary, #A8C814) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 10px 25px rgba(168, 200, 20, 0.25) !important;
+}
+.value-card-green:hover .icon,
+.value-card-green:hover h4,
+.value-card-green:hover p {
+    color: #ffffff !important;
+}
+
+.value-card-dark {
+    background: rgba(13, 43, 51, 0.04) !important;
+    border: 1px solid rgba(13, 43, 51, 0.15) !important;
+    border-radius: 10px !important;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+.value-card-dark .icon {
+    color: var(--color-dark, #0D2B33) !important;
+}
+.value-card-dark h4 {
+    color: var(--color-dark, #0D2B33) !important;
+}
+.value-card-dark p {
+    color: var(--text-color, #555555) !important;
+}
+.value-card-dark:hover {
+    background: var(--color-dark, #0D2B33) !important;
+    border-color: var(--color-dark, #0D2B33) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 10px 25px rgba(13, 43, 51, 0.25) !important;
+}
+.value-card-dark:hover .icon,
+.value-card-dark:hover h4,
+.value-card-dark:hover p {
+    color: #ffffff !important;
+}
