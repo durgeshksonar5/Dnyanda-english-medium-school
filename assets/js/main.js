@@ -609,23 +609,6 @@
 
     }); // end document ready function
 
-    /* ==================================================
-        Preloader Init
-     ===============================================*/
-    function loader() {
-        setTimeout(function() {
-            $('#edufix-preloader').addClass('loaded');
-            $("#loading").fadeOut(500);
-            // Una vez haya terminado el preloader aparezca el scroll
-
-            if ($('#edufix-preloader').hasClass('loaded')) {
-                // Es para que una vez que se haya ido el preloader se elimine toda la seccion preloader
-                $('#preloader').delay(900).queue(function() {
-                    $(this).remove();
-                });
-            }
-        }, 2000);
-    }
-    loader();
+    /* Preloader script relocated to assets/js/preloader.js */
 
 })(jQuery); // End jQuery

@@ -1,0 +1,478 @@
+/* ===================================================================
+   New Scoped Footer Styles for Dnyanda English Medium School
+=================================================================== */
+
+.school-footer {
+    background-color: var(--color-dark, #0D2B33);
+    color: var(--color-white, #FFFFFF);
+    font-family: var(--font-default, 'Outfit', sans-serif);
+    padding: 80px 0 0 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Color transition gradient line at the top */
+.school-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary, #A8C814) 0%, var(--color-secondary, #1F7A8C) 100%);
+    z-index: 5;
+}
+
+/* Subtle background accent shapes for premium visual depth */
+.school-footer::after {
+    content: '';
+    position: absolute;
+    right: -10%;
+    bottom: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168, 200, 20, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.school-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Main Footer Structure */
+.school-footer-main {
+    padding-bottom: 60px;
+}
+
+.school-footer-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* Columns Base Styling */
+.school-footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.school-footer-col.school-footer-brand {
+    padding-right: 20px;
+}
+
+.school-footer-col .footer-brand-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.school-footer-col .footer-logo-img {
+    height: 100px !important;
+    width: auto;
+    object-fit: contain;
+}
+
+.school-footer-col .footer-school-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.school-footer-col .footer-title-primary {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-white, #FFFFFF);
+    letter-spacing: 0.5px;
+}
+
+.school-footer-col .footer-title-secondary {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-primary-light, #CBE567);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+.school-footer-col .school-footer-about-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 25px;
+}
+
+/* Social Buttons */
+.school-footer-social {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.school-footer-social .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    color: var(--color-white, #FFFFFF);
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none;
+}
+
+.school-footer-social .social-btn:hover {
+    background-color: var(--color-primary, #A8C814);
+    color: var(--color-dark, #0D2B33);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(168, 200, 20, 0.25);
+}
+
+/* Column Headings */
+.school-footer-col .footer-col-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-white, #FFFFFF);
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.school-footer-col .footer-col-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary, #A8C814);
+    border-radius: 2px;
+}
+
+/* Navigation Links */
+.school-footer-col .footer-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.school-footer-col .footer-nav-links li {
+    margin-bottom: 12px;
+}
+
+.school-footer-col .footer-nav-links li a {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+}
+
+.school-footer-col .footer-nav-links li a i {
+    font-size: 11px;
+    color: var(--color-primary-light, #CBE567);
+    transition: transform 0.25s ease;
+}
+
+.school-footer-col .footer-nav-links li a:hover {
+    color: var(--color-primary-light, #CBE567);
+    padding-left: 5px;
+}
+
+.school-footer-col .footer-nav-links li a:hover i {
+    transform: translateX(3px);
+}
+
+/* Contact Information Block */
+.school-footer-col .footer-contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.school-footer-col .footer-contact-info li {
+    margin-bottom: 20px;
+}
+
+.school-footer-col .footer-contact-info li:last-child {
+    margin-bottom: 0;
+}
+
+.school-footer-col .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.school-footer-col .contact-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background-color: rgba(31, 122, 140, 0.2); /* secondary color transparent */
+    color: var(--color-primary-light, #CBE567);
+    font-size: 15px;
+    flex-shrink: 0;
+    border: 1px solid rgba(31, 122, 140, 0.3);
+}
+
+.school-footer-col .contact-text-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.school-footer-col .contact-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-primary-light, #CBE567);
+    margin-bottom: 4px;
+}
+
+.school-footer-col .contact-value {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.school-footer-col .contact-value-link {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.school-footer-col .contact-value-link:hover {
+    color: var(--color-primary-light, #CBE567);
+}
+
+.school-footer-col .contact-sub-value {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 2px;
+}
+
+.school-footer-col .footer-map-link {
+    font-size: 12.5px;
+    color: var(--color-primary-light, #CBE567);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    font-weight: 500;
+    transition: opacity 0.25s ease;
+}
+
+.school-footer-col .footer-map-link:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Footer Bottom Area */
+.school-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+}
+
+.school-footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.school-footer-copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.school-footer-copyright p {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+.school-footer-copyright p span {
+    color: var(--color-white, #FFFFFF);
+    font-weight: 600;
+}
+
+.school-footer-copyright .school-footer-developer {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.school-footer-copyright .dev-credit-link {
+    color: var(--color-primary-light, #CBE567);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.25s ease;
+}
+
+.school-footer-copyright .dev-credit-link:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+.school-footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.school-footer-bottom-links a {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.school-footer-bottom-links a:hover {
+    color: var(--color-primary-light, #CBE567);
+}
+
+.school-footer-bottom-links .link-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 11px;
+}
+
+/* ===================================================================
+   Responsive Breakpoints
+=================================================================== */
+
+/* Tablet Layout (2-Column Grid) */
+@media (max-width: 991px) {
+    .school-footer-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    .school-footer-col.school-footer-brand {
+        padding-right: 0;
+    }
+}
+
+/* Mobile Layout (Single Column Stacked with side-by-side links) */
+@media (max-width: 575px) {
+    .school-footer {
+        padding: 60px 0 0 0;
+    }
+    
+    .school-footer-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+    }
+    
+    .school-footer-col {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .school-footer-col.school-footer-brand {
+        align-items: center;
+    }
+    
+    .school-footer-col .footer-brand-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .school-footer-col .footer-school-titles {
+        align-items: center;
+    }
+    
+    .school-footer-col .footer-col-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .school-footer-col .footer-nav-links li a {
+        justify-content: center;
+    }
+    
+    .school-footer-col .contact-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .school-footer-col .contact-text-box {
+        align-items: center;
+    }
+    
+    .school-footer-col .footer-contact-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 10px;
+    }
+    
+    .school-footer-col .footer-contact-info li {
+        margin-bottom: 0;
+    }
+    
+    .school-footer-col .footer-contact-info li:nth-child(1),
+    .school-footer-col .footer-contact-info li:nth-child(4) {
+        grid-column: span 2;
+    }
+    
+    .school-footer-col .footer-contact-info li:nth-child(2),
+    .school-footer-col .footer-contact-info li:nth-child(3) {
+        grid-column: span 1;
+    }
+    
+    .school-footer-col .contact-value, 
+    .school-footer-col .contact-value-link {
+        font-size: 13px !important;
+        word-break: break-word;
+    }
+    
+    /* Branding (Column 1) and Contact Details (Column 4) span full width */
+    .school-footer-row > div:nth-child(1),
+    .school-footer-row > div:nth-child(4) {
+        grid-column: span 2;
+    }
+    
+    /* Quick Links (Column 2) and Important Links (Column 3) span 1 column (side-by-side) and are left-aligned */
+    .school-footer-row > div:nth-child(2),
+    .school-footer-row > div:nth-child(3) {
+        grid-column: span 1;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .school-footer-row > div:nth-child(2) .footer-col-heading::after,
+    .school-footer-row > div:nth-child(3) .footer-col-heading::after {
+        left: 0;
+        transform: none;
+    }
+    
+    .school-footer-row > div:nth-child(2) .footer-nav-links li a,
+    .school-footer-row > div:nth-child(3) .footer-nav-links li a {
+        justify-content: flex-start;
+    }
+    
+    .school-footer-bottom-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .school-footer-bottom-links {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,47 @@
+/* Custom Header Overrides from style.css */
+.navbar-brand img {
+    margin-top: 10px;
+    max-height: 80px !important;
+}
+
+.navbar .attr-right .attr-nav li .btn-style-two {
+    color: var(--white);
+}
+
+.navbar .attr-right .attr-nav li.button a {
+    background: var(--color-secondary) !important;
+    border-radius: 40px !important;
+    padding: 10px 24px !important;
+    font-weight: 700 !important;
+    color: var(--white) !important;
+    box-shadow: 0 4px 15px rgba(31, 122, 140, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.navbar .attr-right .attr-nav li.button a:hover {
+    background: var(--color-primary-hover) !important;
+    color: var(--color-dark) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(183, 212, 50, 0.35) !important;
+}
+
+nav.navbar.validnavs .navbar-toggle i,
+.navbar-toggle i {
+    font-weight: 900 !important;
+}
+
+nav.navbar.validnavs.sticked {
+    display: none !important;
+}
+
+@media (max-width: 991px) {
+    .navbar .attr-right .attr-nav li.button a {
+        padding: 10px 20px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .navbar-brand img {
+        max-height: 46px !important;
+    }
+}
