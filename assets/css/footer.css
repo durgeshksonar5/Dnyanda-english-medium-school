@@ -322,11 +322,26 @@
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.25s ease;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .school-footer-copyright .dev-credit-link:hover {
-    text-decoration: underline;
+    text-decoration: none;
     opacity: 0.9;
+}
+
+.school-footer-copyright .dev-credit-link img {
+    height: 24px;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.school-footer-copyright .dev-credit-link:hover img {
+    transform: scale(1.05);
 }
 
 .school-footer-bottom-links {
