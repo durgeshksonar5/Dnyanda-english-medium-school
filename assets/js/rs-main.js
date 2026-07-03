@@ -771,34 +771,45 @@
         });
     });
 
-    // Smooth Scroling
+    // Smooth Scrolling
     if ($('.rs-smoother-yes').length) {
         const lenis = new Lenis({
             smoothWheel: true,
-            wheelMultiplier: 1.2,
-            duration: 1.8,
-            lerp: 0.05,
+            wheelMultiplier: 1.1,
+            duration: 1.2,
+            lerp: 0.1,
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
+        // Sync ScrollTrigger updates with Lenis scroll events
+        lenis.on('scroll', () => {
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.update();
+            }
+        });
 
-        // Handle scroll animation for anchor links
+        // Use GSAP ticker to drive Lenis frame loops for perfect synchronization
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
+        // Prevent frame latency offsets
+        gsap.ticker.lagSmoothing(0);
+
+        // Handle smooth scroll animation for anchor links via LenisscrollTo
         document.querySelectorAll('a[href^="#"]').forEach((el) => {
             el.addEventListener('click', (e) => {
-                e.preventDefault()
-                const id = el.getAttribute('href') ? .slice(1)
-                if (!id) return
-                const target = document.getElementById(id)
+                e.preventDefault();
+                const id = el.getAttribute('href')?.slice(1);
+                if (!id) return;
+                const target = document.getElementById(id);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    })
+                    lenis.scrollTo(target, {
+                        offset: -100,
+                        duration: 1.2,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                    });
                 }
-            })
+            });
         });
     }
 

@@ -24073,9 +24073,22 @@ html.lenis body {
     }
 }
 
+.rs-testimonial-three .rs-testimonial-rating-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    vertical-align: middle;
+}
+
 .rs-testimonial-three .rs-testimonial-rating-icon i {
-    color: #FF8E2B;
-    font-size: 17px;
+    color: #FFB800;
+    font-size: 18px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rs-testimonial-three .rs-testimonial-rating-icon i:hover {
+    transform: scale(1.2);
+    color: #FF9800;
 }
 
 .rs-testimonial-three .rs-testimonial-rating-wrapper {
@@ -24218,6 +24231,153 @@ html.lenis body {
 
 .rs-testimonial-three.has-bg-white .rs-testimonial-pagination {
     margin-top: 40px;
+}
+
+/* --- School Testimonial Section Scoped Styles --- */
+
+/* Equal Heights setup for Swiper wrapper & slides */
+.school-testimonial-section.rs-testimonial-three .school-testimonial-swiper {
+    padding-bottom: 20px;
+}
+
+.school-testimonial-section.rs-testimonial-three .school-testimonial-swiper .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+.school-testimonial-section.rs-testimonial-three .school-testimonial-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+/* Premium Card Design */
+.school-testimonial-section .school-testimonial-card {
+    background: #ffffff !important;
+    border: 1px solid #eaeaea !important;
+    border-radius: 12px !important;
+    padding: 35px 30px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 !important;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.school-testimonial-section .school-testimonial-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+    border-color: rgba(255, 184, 0, 0.3) !important;
+}
+
+/* Avatar Wrapper styling - visible bottom border on white bg card */
+.school-testimonial-section .school-testimonial-card .rs-testimonial-avater-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f2f2f2 !important;
+    padding-bottom: 18px !important;
+    margin-bottom: 18px !important;
+}
+
+.school-testimonial-section .school-testimonial-card .rs-testimonial-avater-title {
+    font-size: 19px !important;
+    color: #0c2b33 !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+}
+
+.school-testimonial-section .school-testimonial-card .rs-testimonial-avater-designation {
+    font-size: 14px !important;
+    color: #5b6e72 !important;
+    font-weight: 500 !important;
+}
+
+/* Rating Wrapper & rating text styling */
+.school-testimonial-section .school-testimonial-card .rs-testimonial-rating-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.school-testimonial-section .school-testimonial-card .rs-testimonial-rating {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #0c2b33 !important;
+    line-height: 1 !important;
+}
+
+/* Quote Icon color adjustment */
+.school-testimonial-section .school-testimonial-card .rs-testimonial-icon svg {
+    width: 28px !important;
+    height: 20px !important;
+    fill: #FFB800 !important;
+    opacity: 0.15 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.school-testimonial-section .school-testimonial-card:hover .rs-testimonial-icon svg {
+    opacity: 0.35 !important;
+}
+
+/* Testimonial description styling */
+.school-testimonial-section .school-testimonial-card .rs-testimonial-desc {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    color: #445558 !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    flex-grow: 1 !important;
+}
+
+/* Custom Centered Pagination Bullet styling */
+.school-testimonial-section .rs-testimonial-pagination {
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 30px !important;
+    margin-bottom: 10px !important;
+}
+
+.school-testimonial-section .school-testimonial-pagination.swiper-pagination {
+    position: static !important;
+    width: auto !important;
+}
+
+.school-testimonial-section .school-testimonial-pagination .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+    background: #c3d3d6 !important;
+    opacity: 1 !important;
+    margin: 0 5px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    cursor: pointer !important;
+}
+
+.school-testimonial-section .school-testimonial-pagination .swiper-pagination-bullet-active {
+    background: #FFB800 !important;
+    width: 22px !important;
+    border-radius: 5px !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .school-testimonial-section .school-testimonial-card {
+        padding: 25px 20px !important;
+    }
+    
+    .school-testimonial-section .school-testimonial-card .rs-testimonial-avater-title {
+        font-size: 17px !important;
+    }
+    
+    .school-testimonial-section .school-testimonial-card .rs-testimonial-desc {
+        font-size: 15px !important;
+    }
 }
 
 .rs-testimonial-three.has-theme-red {
