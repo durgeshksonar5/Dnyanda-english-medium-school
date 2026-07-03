@@ -45,3 +45,23 @@ nav.navbar.validnavs.sticked {
         max-height: 46px !important;
     }
 }
+
+/* Mobile menu collapse logo styling */
+@media (max-width: 1023px) {
+    nav.navbar.validnavs .navbar-collapse.collapse img {
+        display: block !important;
+        height: 50px !important;
+        width: auto !important;
+        max-width: 160px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Hide brand logo when mobile menu is open to prevent overlapping */
+    .navbar.navbar-responsive .navbar-brand {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+}
+
+

@@ -148,6 +148,245 @@
                 padding: 20px !important;
             }
         }
+
+        /* Mobile Responsive Overrides for Hero Banner & About Section */
+        @media (max-width: 767px) {
+            /* General section containment and scroll prevention */
+            .banner-style-seven-area,
+            .banner-style-seven,
+            .about-style-six-area {
+                overflow-x: hidden !important;
+            }
+
+            /* Mobile menu collapse logo styling */
+            nav.navbar.validnavs .navbar-collapse.collapse img {
+                display: block !important;
+                height: 50px !important;
+                width: auto !important;
+                max-width: 160px !important;
+                margin-bottom: 20px !important;
+            }
+
+            /* Hide brand logo when mobile menu is open to prevent overlapping */
+            .navbar.navbar-responsive .navbar-brand {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+
+            /* Hero Banner layout corrections */
+            .banner-style-seven .banner-thumb {
+                background-size: cover !important;
+                background-position: center top !important;
+            }
+
+            /* Hide the decorative top-right green shapes on mobile to match the template spec */
+            .banner-style-seven-area::after,
+            .banner-round-shape,
+            .banner-round-shape::after,
+            .banner-round-shape::before {
+                display: none !important;
+            }
+
+            .banner-style-seven-info {
+                padding: 100px 0 50px !important;
+            }
+
+            .banner-style-seven-info .row {
+                row-gap: 30px !important;
+            }
+
+            .banner-style-seven-info .content {
+                text-align: center !important;
+                margin-bottom: 10px !important;
+            }
+
+            /* Badge text auto wrapping to prevent overflow */
+            .banner-style-seven-info .badge {
+                font-size: 11px !important;
+                padding: 8px 12px !important;
+                line-height: 1.4 !important;
+                letter-spacing: 0.5px !important;
+                white-space: normal !important;
+                max-width: 100% !important;
+                display: inline-block !important;
+                margin-bottom: 15px !important;
+            }
+
+            /* Heading and font sizing */
+            .banner-style-seven-info h1 {
+                font-size: 30px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 15px !important;
+                font-weight: 800 !important;
+            }
+
+            .banner-style-seven-info p {
+                font-size: 15px !important;
+                line-height: 1.6 !important;
+                margin-bottom: 15px !important;
+            }
+
+            .banner-style-seven-info .button-tag {
+                font-size: 13px !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* Polished mobile card design for the admission form */
+            .hero-form-box {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 24px 20px !important;
+                margin: 0 auto !important;
+                border-radius: 14px !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+            }
+
+            .hero-form-box .form-header {
+                margin-bottom: 18px !important;
+            }
+
+            .hero-form-box .form-header h3 {
+                font-size: 22px !important;
+                margin-bottom: 8px !important;
+            }
+
+            .hero-form-box .form-header p {
+                font-size: 14px !important;
+                line-height: 1.4 !important;
+            }
+
+            .hero-form-box .form-group {
+                margin-bottom: 14px !important;
+            }
+
+            .hero-form-box label {
+                font-size: 14px !important;
+                margin-bottom: 6px !important;
+            }
+
+            .hero-form-box .form-control,
+            .hero-form-box select,
+            .hero-form-box .nice-select {
+                width: 100% !important;
+                min-height: 48px !important;
+                font-size: 14px !important;
+                padding: 12px 15px 12px 45px !important; /* space for icon */
+            }
+
+            .hero-form-box select {
+                padding-right: 35px !important;
+            }
+
+            .hero-form-box .input-icon {
+                left: 15px !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                font-size: 14px !important;
+            }
+
+            .btn-submit-hero {
+                width: 100% !important;
+                min-height: 48px !important;
+                font-size: 15px !important;
+            }
+
+            /* About Section layout stack */
+            .about-style-six-area {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+            .about-style-six-thumb {
+                position: relative !important;
+                left: auto !important;
+                top: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                margin-bottom: 30px !important;
+                text-align: center !important;
+            }
+
+            .about-style-six-thumb img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 480px !important;
+                margin: 0 auto !important;
+                display: block !important;
+                border-radius: 12px !important;
+            }
+
+            /* Scale down badge */
+            .about-style-six-thumb .round-text {
+                transform: scale(0.7) !important;
+                right: 15px !important;
+                bottom: 15px !important;
+            }
+
+            .about-style-six-info {
+                padding-left: 0 !important;
+                text-align: center !important;
+            }
+
+            /* Stacking grid columns for top info (Since 2021 text + building image) */
+            .about-style-six-info .top-info {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+                text-align: center !important;
+                margin-bottom: 22px !important;
+            }
+
+            .about-style-six-info .top-info img {
+                max-width: 100% !important;
+                width: auto !important;
+                margin: 0 auto !important;
+            }
+
+            /* "Since 2021" layout - inline centered and sized down */
+            .about-style-six-info .top-info h2 {
+                font-size: 40px !important;
+                border-bottom: none !important;
+                padding-bottom: 0 !important;
+                margin: 0 !important;
+                text-align: center !important;
+                text-transform: capitalize !important;
+            }
+
+            .about-style-six-info .top-info h2 strong {
+                display: inline-block !important;
+                margin-left: 8px !important;
+            }
+
+            /* Heading sizes and paragraphs */
+            .about-style-six-info .title {
+                font-size: 26px !important;
+                line-height: 1.35 !important;
+                margin-bottom: 18px !important;
+            }
+
+            .about-style-six-info p {
+                font-size: 15px !important;
+                line-height: 1.75 !important;
+                text-align: left !important;
+                margin-bottom: 15px !important;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .banner-style-seven-info h1 {
+                font-size: 26px !important;
+                line-height: 1.25 !important;
+            }
+
+            .hero-form-box {
+                padding: 20px 16px !important;
+            }
+
+            .about-style-six-thumb .round-text {
+                display: none !important;
+            }
+        }
     </style>
     <!-- ========== End Stylesheet ========== -->
 
@@ -692,7 +931,7 @@
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                     <div class="site-heading text-center">
                         <h4 class="sub-title">Beyond Classroom</h4>
-                        <h2 class="title split-text" style="font-weight: 700;">Every Day is a New Opportunity to Learn</h2>
+                        <h2 class="title" style="font-weight: 700;">Every Day is a New Opportunity to Learn</h2>
                         <p style="font-size: 16px; line-height: 1.8; margin-top: 15px;">
                             We believe children learn best when they enjoy learning.
                         </p>
