@@ -332,7 +332,7 @@
 }
 
 .school-footer-copyright .dev-credit-link img {
-    height: 24px;
+    height: 45px !important;
     width: auto;
     vertical-align: middle;
     margin-left: 5px;
