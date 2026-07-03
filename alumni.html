@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="template-version" content="1.0.1">
-    <title>Our Students & Alumni | Dnyanda English Medium School</title>
-    <meta name="description" content="Meet our talented students, achievers, and alumni profiles from Dnyanda English Medium School. See their accomplishments and student life.">
+    <title>Our Gallery | Dnyanda English Medium School</title>
+    <meta name="description" content="Explore glimpses of our students, teachers, classroom activities, celebrations, sports, arts, and joyful school life at Dnyanda English Medium School.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" href="assets/images/dnayanda-logo-transferent.png" type="image/x-icon">
@@ -28,6 +28,203 @@
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/preloader.css">
+    
+    <!-- Scoped Custom Gallery CSS -->
+    <style>
+        .school-gallery-area {
+            background-color: var(--bg-primary, #ffffff);
+        }
+
+        .gallery-filter-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-filter-wrapper .filter-btn {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            color: #444444;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .gallery-filter-wrapper .filter-btn:hover,
+        .gallery-filter-wrapper .filter-btn.active {
+            background: #ffc600;
+            color: #1d2b53;
+            border-color: #ffc600;
+            box-shadow: 0 4px 15px rgba(255, 198, 0, 0.3);
+        }
+
+        .school-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .school-gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .school-gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .school-gallery-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .school-gallery-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .school-gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .school-gallery-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
+            color: #ffffff;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .school-gallery-item:hover .school-gallery-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .school-gallery-info h5 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .school-gallery-info span {
+            font-size: 12px;
+            font-weight: 500;
+            color: #f0f0f0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .school-gallery-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 198, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1d2b53;
+            font-size: 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .school-gallery-item:hover .school-gallery-overlay {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        @media (max-width: 1199px) {
+            .school-gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .school-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .school-gallery-item img {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .school-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .school-gallery-item {
+                border-radius: 10px;
+            }
+
+            .school-gallery-item img {
+                height: 150px;
+            }
+
+            .gallery-filter-wrapper {
+                gap: 8px;
+                margin-bottom: 30px;
+            }
+
+            .gallery-filter-wrapper .filter-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+            
+            .school-gallery-info {
+                padding: 10px;
+            }
+            
+            .school-gallery-info h5 {
+                font-size: 13px;
+            }
+            
+            .school-gallery-info span {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .school-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .school-gallery-item img {
+                height: 130px;
+            }
+        }
+    </style>
 </head>
 
 <body class="rs-smoother-yes">
@@ -111,7 +308,7 @@
                             <li><a href="admission-requirements.html">Admission Requirements</a></li>
                             <li><a href="program.html">Programs</a></li>
                             <li><a href="event.html">Events</a></li>
-                            <li><a href="alumni.html">Alumni</a></li>
+                            <li><a href="alumni.html">Gallery</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -274,29 +471,22 @@
                                 <nav>
                                     <ul>
                                         <li class="rs-breadcumb-item">
-                                            <a href="index.html">
-                                                Home
-                                            </a>
+                                            <a href="index.html">Home</a>
                                             <span class="rs-breadcrumb-icon">
-                                    <svg class="e-font-icon-svg e-fas-angle-double-right" viewBox="0 0 448 512"
-                                       xmlns="http://www.w3.org/2000/svg">
-                                       <path
-                                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z">
-                                       </path>
-                                    </svg>
-                                 </span>
+                                                <svg class="e-font-icon-svg e-fas-angle-double-right" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path>
+                                                </svg>
+                                            </span>
                                         </li>
-                                        <li class="rs-breadcumb-item">
-                                            Alumni
-                                        </li>
+                                        <li class="rs-breadcumb-item">Gallery</li>
                                     </ul>
                                 </nav>
                             </div>
                             <div class="rs-breadcrumb-title-wrapper">
-                                <h1 class="rs-breadcrumb-title">Alumni</h1>
+                                <h1 class="rs-breadcrumb-title">Our Gallery</h1>
                                 <span class="rs-breadcrumb-line"></span>
                             </div>
-                            <p class="rs-breadcrumb-desc">Education goes beyond textbooks and classrooms. We believe in empowering students to explore their passions challenge conventions.</p>
+                            <p class="rs-breadcrumb-desc">Explore glimpses of our students, teachers, classroom activities, celebrations, sports, arts, and joyful school life at Dnyanda English Medium School.</p>
                         </div>
                     </div>
                 </div>
@@ -304,682 +494,328 @@
         </section>
         <!-- breadcrumb area end -->
 
-        <!-- alumni area start -->
-        <section class="rs-alumni-area bg-primary section-space-top rs-alumni-one">
+        <!-- Gallery Section Start -->
+        <section class="school-gallery-area section-space bg-primary">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-research-wrapper">
-                            <h3 class="section-title text has-theme-blue mb-20">Student Achievements & Alumni</h3>
-                            <p class="section-desc">At Dnyanda English Medium School, our students shine in both scholastic and co-scholastic domains. From academic ranks to sports trophies, creative writing, and innovative robotics, our learners are constantly pushing their boundaries and setting new benchmarks of excellence.</p>
-                            <div class="rs-alumni-thumb">
-                                <img src="assets/images/alumni/alamni-thumb-01.webp" alt="image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- alumni area end -->
-
-        <!-- alumni area start -->
-        <section class="rs-alumni-area rs-alumni-two bg-primary section-space-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-alumni-sec-wrapper">
-                            <h3 class="section-title text has-theme-blue mb-15">Nurturing Talents: Student Journeys</h3>
-                            <p class="section-desc">Every child at Dnyanda has a unique path of discovery. Through activity-based learning and future-ready skill development programs like financial literacy and robotics, we foster critical thinking and help students manifest their full potential.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-alumni-wrapper">
-                            <div class="rs-alumni-content-item-wrapper">
-                                <div class="rs-alumni-item">
-                                    <h6 class="rs-alumni-title">Scholastic Achievements</h6>
-                                    <div class="rs-alumni-content">
-                                        <div class="rs-alumni-inner">
-                                            <p class="rs-alumni-desc">
-                                                Our students consistently display strong learning milestones across CBSE core subjects:
-                                            </p>
-                                            <ul>
-                                                <li>Top ranks in Science & Cyber Olympiads.</li>
-                                                <li>Exceptional communication, vocabulary, and phonics skills.</li>
-                                                <li>Strong logical and analytical skills developed via financial literacy.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rs-alumni-item">
-                                    <h6 class="rs-alumni-title">Co-Scholastic Milestones</h6>
-                                    <div class="rs-alumni-content">
-                                        <div class="rs-alumni-inner">
-                                            <p class="rs-alumni-desc">
-                                                We believe in a holistic learning experience that goes beyond the textbook:
-                                            </p>
-                                            <ul>
-                                                <li>Active participation and trophies in inter-school sports tournaments.</li>
-                                                <li>Creative exhibitions featuring paintings, handicrafts, and models.</li>
-                                                <li>Robotics projects demonstrating engineering and programming logic.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rs-alumni-thumb-wrapper">
-                                <div class="rs-alumni-thumb">
-                                    <img src="assets/images/alumni/alamni-thumb-02.webp" alt="image">
-                                </div>
-                                <div class="rs-alumni-thumb">
-                                    <img src="assets/images/alumni/alamni-thumb-03.webp" alt="image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- alumni area end -->
-
-        <!-- team area start -->
-        <section class="rs-team-area section-space rs-team-three">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-team-sec-wrapper">
-                            <h3 class="section-title text has-theme-blue mb-20">Student Achievers</h3>
-                            <p class="section-desc">Our students have made us proud in various regional, district, and national competitions. Here are some of our outstanding achievers who demonstrate that at Dnyanda, excellence is a habit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-team-wrapper">
-                            <!-- Card 1 -->
-                            <div class="rs-team-item">
-                                <div class="rs-team-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/team/team-thumb-07.webp" alt="Amit Sharma">
-                                    </a>
-                                </div>
-                                <div class="rs-team-content">
-                                    <h5 class="rs-team-title">
-                                        <a href="#">Amit Sharma</a>
-                                    </h5>
-                                    <span class="rs-team-desig">Grade V Student | Cyber Olympiad</span>
-                                    <p class="rs-team-bio">Scored 1st rank in the Regional Cyber Olympiad 2025.</p>
-                                    <div class="rs-team-btn">
-                                        <a class="rs-btn has-icon hover-yellow" href="#">
-                                            <span class="btn-text-wrap">
-                                                <span class="text-default">View Accomplishments</span>
-                                                <span class="text-hover">View Accomplishments</span>
-                                            </span>
-                                            <span class="icon-box has-rotate">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                                    <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                                    <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                                    <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                                    <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                                    <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 2 -->
-                            <div class="rs-team-item">
-                                <div class="rs-team-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/team/team-thumb-08.webp" alt="Priya Patil">
-                                    </a>
-                                </div>
-                                <div class="rs-team-content">
-                                    <h5 class="rs-team-title">
-                                        <a href="#">Priya Patil</a>
-                                    </h5>
-                                    <span class="rs-team-desig">Grade IV Student | Fine Arts</span>
-                                    <p class="rs-team-bio">Won gold medal at the District Inter-School Painting Competition.</p>
-                                    <div class="rs-team-btn">
-                                        <a class="rs-btn has-icon hover-yellow" href="#">
-                                            <span class="btn-text-wrap">
-                                                <span class="text-default">View Accomplishments</span>
-                                                <span class="text-hover">View Accomplishments</span>
-                                            </span>
-                                            <span class="icon-box has-rotate">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                                    <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                                    <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                                    <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                                    <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                                    <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 3 -->
-                            <div class="rs-team-item">
-                                <div class="rs-team-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/team/team-thumb-09.webp" alt="Rohan Kelkar">
-                                    </a>
-                                </div>
-                                <div class="rs-team-content">
-                                    <h5 class="rs-team-title">
-                                        <a href="#">Rohan Kelkar</a>
-                                    </h5>
-                                    <span class="rs-team-desig">Grade V Student | Robotics</span>
-                                    <p class="rs-team-bio">Built an autonomous obstacle-avoiding vehicle at our Robotics Lab.</p>
-                                    <div class="rs-team-btn">
-                                        <a class="rs-btn has-icon hover-yellow" href="#">
-                                            <span class="btn-text-wrap">
-                                                <span class="text-default">View Accomplishments</span>
-                                                <span class="text-hover">View Accomplishments</span>
-                                            </span>
-                                            <span class="icon-box has-rotate">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                                    <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                                    <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                                    <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                                    <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                                    <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 4 -->
-                            <div class="rs-team-item">
-                                <div class="rs-team-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/team/team-thumb-10.webp" alt="Siddhi Joshi">
-                                    </a>
-                                </div>
-                                <div class="rs-team-content">
-                                    <h5 class="rs-team-title">
-                                        <a href="#">Siddhi Joshi</a>
-                                    </h5>
-                                    <span class="rs-team-desig">Grade III Student | Spelling Bee</span>
-                                    <p class="rs-team-bio">Secured 2nd place in the State-Level English Spelling Bee Competition.</p>
-                                    <div class="rs-team-btn">
-                                        <a class="rs-btn has-icon hover-yellow" href="#">
-                                            <span class="btn-text-wrap">
-                                                <span class="text-default">View Accomplishments</span>
-                                                <span class="text-hover">View Accomplishments</span>
-                                            </span>
-                                            <span class="icon-box has-rotate">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                                    <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                                    <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                                    <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                                    <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                                    <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 5 -->
-                            <div class="rs-team-item">
-                                <div class="rs-team-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/team/team-thumb-11.webp" alt="Rajesh Shinde">
-                                    </a>
-                                </div>
-                                <div class="rs-team-content">
-                                    <h5 class="rs-team-title">
-                                        <a href="#">Rajesh Shinde</a>
-                                    </h5>
-                                    <span class="rs-team-desig">Grade V Student | Football Captain</span>
-                                    <p class="rs-team-bio">Led the U-11 football team to win the Alandi Taluka Inter-School Cup.</p>
-                                    <div class="rs-team-btn">
-                                        <a class="rs-btn has-icon hover-yellow" href="#">
-                                            <span class="btn-text-wrap">
-                                                <span class="text-default">View Accomplishments</span>
-                                                <span class="text-hover">View Accomplishments</span>
-                                            </span>
-                                            <span class="icon-box has-rotate">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                                    <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                                    <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                                    <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                                    <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                                    <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 6 -->
-                            <div class="rs-team-item">
-                                <div class="rs-team-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/team/team-thumb-12.webp" alt="Snehal Mane">
-                                    </a>
-                                </div>
-                                <div class="rs-team-content">
-                                    <h5 class="rs-team-title">
-                                        <a href="#">Snehal Mane</a>
-                                    </h5>
-                                    <span class="rs-team-desig">Grade IV Student | Performing Arts</span>
-                                    <p class="rs-team-bio">Performed and won accolades in the Maharashtra Folk Dance Fest 2025.</p>
-                                    <div class="rs-team-btn">
-                                        <a class="rs-btn has-icon hover-yellow" href="#">
-                                            <span class="btn-text-wrap">
-                                                <span class="text-default">View Accomplishments</span>
-                                                <span class="text-hover">View Accomplishments</span>
-                                            </span>
-                                            <span class="icon-box has-rotate">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                                    <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                                    <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                                    <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                                    <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                                    <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- team area end -->
-
-        <!-- event area start -->
-        <section class="rs-event-area section-space rs-event-one bg-primary">
-            <div class="container">
-                <div class="row align-items-center g-5 section-title-space">
-                    <div class="col-xl-7 col-lg-7">
-                        <div class="section-title-wrapper">
-                            <span class="section-subtitle has-theme-blue">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M5.21484 12.8949V16.6564C5.21484 16.6564 8.82175 15.1537 12.0198 15.1537C15.2178 15.1537 18.8255 16.6564 18.8255 16.6564V12.8424C18.8255 12.8424 15.3844 11.0225 11.9665 11.0225C8.55018 11.021 5.21484 12.8949 5.21484 12.8949Z"></path>
-                                    <path d="M22.6467 11.9993L24 11.2716L22.6467 10.5222V10.1666C22.6467 10.1666 23.0278 8.23413 20.862 9.24464C20.7517 9.30465 20.6924 9.36542 20.6684 9.42468L11.7367 4.47119L0 11.1884L4.43211 13.2019V12.5485C4.43211 12.5485 8.15079 10.4607 11.9625 10.4607C15.7734 10.4607 19.6092 12.4899 19.6092 12.4899V13.631L22.0563 12.3167V17.6377H21.2416V19.529L22.3248 18.7803L23.5274 19.529V17.637H22.6467V11.9993ZM22.0555 9.83803V10.1944L21.3413 9.79827C21.6017 9.62573 22.0555 9.38642 22.0555 9.83803ZM21.814 11.9251C21.737 11.9279 21.6603 11.9152 21.5883 11.8877C21.5164 11.8602 21.4507 11.8185 21.3952 11.7651C21.3398 11.7117 21.2956 11.6476 21.2655 11.5768C21.2353 11.5059 21.2198 11.4297 21.2197 11.3527C21.2197 11.2757 21.2351 11.1994 21.2652 11.1285C21.2953 11.0576 21.3393 10.9935 21.3947 10.94C21.4501 10.8865 21.5157 10.8447 21.5876 10.8172C21.6595 10.7896 21.7362 10.7768 21.8132 10.7795C21.9615 10.7848 22.102 10.8474 22.2051 10.9542C22.3082 11.0609 22.3659 11.2035 22.366 11.3519C22.3661 11.5003 22.3086 11.643 22.2056 11.7499C22.1027 11.8568 21.9623 11.9196 21.814 11.9251Z"></path>
-                                </svg>
-                                Campus Life
-                            </span>
-                            <h2 class="section-title rs-split-text-enable split-in-left has-theme-blue">School Events</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-event-wrapper">
-                            <!-- Event 1 -->
-                            <div class="rs-event-item">
-                                <div class="rs-event-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-event-thumb">
-                                    <a href="event.html">
-                                        <img src="assets/images/event/event-thumb-01.webp" alt="Annual Sports Meet">
-                                    </a>
-                                </div>
-                                <div class="rs-event-content">
-                                    <div class="rs-event-meta">
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-calendar-line"></i>January 12, 2026
-                                        </span>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-time-line"></i>08:30 AM - 02:30 PM
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-event-title">
-                                        <a href="event.html">Annual Sports Meet & Track Championships</a>
-                                    </h5>
-                                    <span class="rs-event-meta-item">
-                                        <i class="ri-map-2-line"></i>Sports Ground, Kelgaon
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- Event 2 -->
-                            <div class="rs-event-item">
-                                <div class="rs-event-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-event-thumb">
-                                    <a href="event.html">
-                                        <img src="assets/images/event/event-thumb-02.webp" alt="Science Exhibition">
-                                    </a>
-                                </div>
-                                <div class="rs-event-content">
-                                    <div class="rs-event-meta">
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-calendar-line"></i>February 15, 2026
-                                        </span>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-time-line"></i>09:30 AM - 04:00 PM
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-event-title">
-                                        <a href="event.html">Science & Technology Model Exhibition</a>
-                                    </h5>
-                                    <span class="rs-event-meta-item">
-                                        <i class="ri-map-2-line"></i>Robotics Lab & Assembly Hall
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- Event 3 -->
-                            <div class="rs-event-item">
-                                <div class="rs-event-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-event-thumb">
-                                    <a href="event.html">
-                                        <img src="assets/images/event/event-thumb-03.webp" alt="Cultural Dance Fest">
-                                    </a>
-                                </div>
-                                <div class="rs-event-content">
-                                    <div class="rs-event-meta">
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-calendar-line"></i>December 22, 2025
-                                        </span>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-time-line"></i>05:00 PM - 08:30 PM
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-event-title">
-                                        <a href="event.html">Annual Gathering & Folk Dance Fest</a>
-                                    </h5>
-                                    <span class="rs-event-meta-item">
-                                        <i class="ri-map-2-line"></i>School Stage, Alandi Campus
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- Event 4 -->
-                            <div class="rs-event-item">
-                                <div class="rs-event-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-event-thumb">
-                                    <a href="event.html">
-                                        <img src="assets/images/event/event-thumb-04.webp" alt="Robotics Challenge">
-                                    </a>
-                                </div>
-                                <div class="rs-event-content">
-                                    <div class="rs-event-meta">
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-calendar-line"></i>March 05, 2026
-                                        </span>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-time-line"></i>10:00 AM - 03:00 PM
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-event-title">
-                                        <a href="event.html">Inter-School Robotics & Coding Championship</a>
-                                    </h5>
-                                    <span class="rs-event-meta-item">
-                                        <i class="ri-map-2-line"></i>Innovation Center, Kelgaon
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- event area end -->
-
-        <!-- gallery area start -->
-        <section class="rs-gallery-area section-space rs-gallery-two">
-            <div class="container">
+                
+                <!-- Section Title -->
                 <div class="row justify-content-center">
-                    <div class="col-xl-10">
+                    <div class="col-xl-8">
                         <div class="section-title-wrapper text-center section-title-space">
-                            <h2 class="section-title rs-split-text-enable split-in-left mb-10 has-theme-blue">School Gallery
-                            </h2>
-                            <p class="section-desc">Take a look at our vibrant school campus, modern activity rooms, science labs, and happy learning moments.</p>
+                            <h2 class="section-title has-theme-blue mb-15">School Memories</h2>
+                            <p class="section-desc">Moments of Learning, Creativity, Celebration, and Growth</p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-gallery-wrapper">
-                            <div class="rs-gallery-item">
-                                <div class="rs-gallery-thumb">
-                                    <img src="assets/images/gallery/gallery-thumb-01.webp" alt="image">
-                                    <div class="rs-gallery-btn">
-                                        <a class="popup-image rs-btn-circle" href="assets/images/gallery/gallery-thumb-01.webp">
-                                            <i class="ri-add-line"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rs-gallery-item">
-                                <div class="rs-gallery-thumb">
-                                    <img src="assets/images/gallery/gallery-thumb-02.webp" alt="image">
-                                    <div class="rs-gallery-btn">
-                                        <a class="popup-image rs-btn-circle" href="assets/images/gallery/gallery-thumb-02.webp">
-                                            <i class="ri-add-line"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rs-gallery-item">
-                                <div class="rs-gallery-thumb">
-                                    <img src="assets/images/gallery/gallery-thumb-03.webp" alt="image">
-                                    <div class="rs-gallery-btn">
-                                        <a class="popup-image rs-btn-circle" href="assets/images/gallery/gallery-thumb-03.webp">
-                                            <i class="ri-add-line"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rs-gallery-item">
-                                <div class="rs-gallery-thumb">
-                                    <img src="assets/images/gallery/gallery-thumb-04.webp" alt="image">
-                                    <div class="rs-gallery-btn">
-                                        <a class="popup-image rs-btn-circle" href="assets/images/gallery/gallery-thumb-04.webp">
-                                            <i class="ri-add-line"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rs-gallery-item">
-                                <div class="rs-gallery-thumb">
-                                    <img src="assets/images/gallery/gallery-thumb-05.webp" alt="image">
-                                    <div class="rs-gallery-btn">
-                                        <a class="popup-image rs-btn-circle" href="assets/images/gallery/gallery-thumb-05.webp">
-                                            <i class="ri-add-line"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rs-gallery-item">
-                                <div class="rs-gallery-thumb">
-                                    <img src="assets/images/gallery/gallery-thumb-06.webp" alt="image">
-                                    <div class="rs-gallery-btn">
-                                        <a class="popup-image rs-btn-circle" href="assets/images/gallery/gallery-thumb-06.webp">
-                                            <i class="ri-add-line"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
+                <!-- Gallery Filters -->
+                <div class="gallery-filter-wrapper">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="classroom">Classroom Activities</button>
+                    <button class="filter-btn" data-filter="teachers">Teachers & Students</button>
+                    <button class="filter-btn" data-filter="sports">Sports</button>
+                    <button class="filter-btn" data-filter="arts">Arts & Creativity</button>
+                    <button class="filter-btn" data-filter="event">School Events</button>
+                    <button class="filter-btn" data-filter="campus">Campus Life</button>
                 </div>
+                
+                <!-- Gallery Grid -->
+                <div class="school-gallery-grid">
+                    
+                    <!-- Item 1: Building -->
+                    <div class="school-gallery-item campus">
+                        <a href="assets/images/building-01.png" class="popup-image" title="Main School Building & Campus">
+                            <img src="assets/images/building-01.png" alt="Dnyanda English Medium School main campus building and greenery">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Main Campus Building</h5>
+                                <span>Campus Life</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 2: Sports -->
+                    <div class="school-gallery-item sports event">
+                        <a href="assets/images/event/annual-sports-meet-indian-students.png" class="popup-image" title="Annual Sports Meet & Track Championships">
+                            <img src="assets/images/event/annual-sports-meet-indian-students.png" alt="Primary school students running in the track championships during Annual Sports Meet">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Annual Sports Meet</h5>
+                                <span>Sports / Events</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 3: Science Exhibition -->
+                    <div class="school-gallery-item classroom event">
+                        <a href="assets/images/event/science-technology-model-exhibition-indian-students.png" class="popup-image" title="Science & Technology Model Exhibition">
+                            <img src="assets/images/event/science-technology-model-exhibition-indian-students.png" alt="Students explaining their physics models to teachers and visitors at the Science Exhibition">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Science Exhibition</h5>
+                                <span>Classroom / Events</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 4: Folk Dance -->
+                    <div class="school-gallery-item arts event">
+                        <a href="assets/images/event/annual-gathering-folk-dance-indian-students.png" class="popup-image" title="Annual Gathering Folk Dance Performance">
+                            <img src="assets/images/event/annual-gathering-folk-dance-indian-students.png" alt="Primary school students in colourful traditional attire performing folk dance on the school stage">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Folk Dance Performance</h5>
+                                <span>Arts / Events</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 5: Robotics -->
+                    <div class="school-gallery-item classroom event">
+                        <a href="assets/images/event/inter-school-robotics-coding-championship-indian-students.png" class="popup-image" title="Inter-School Robotics & Coding Championship">
+                            <img src="assets/images/event/inter-school-robotics-coding-championship-indian-students.png" alt="Tech enthusiastic student teams building and programming robots during the championship">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Robotics Championship</h5>
+                                <span>Classroom / Events</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 6: Grandparents Day -->
+                    <div class="school-gallery-item event">
+                        <a href="assets/images/event/grandparents-day-celebration-indian-school.png" class="popup-image" title="Grandparents Day Celebration">
+                            <img src="assets/images/event/grandparents-day-celebration-indian-school.png" alt="Primary school students welcoming and sharing stories with their grandparents">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Grandparents Day</h5>
+                                <span>School Events</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 7: Independence Day -->
+                    <div class="school-gallery-item event">
+                        <a href="assets/images/event/independence-day-special-assembly-indian-students.png" class="popup-image" title="Independence Day Special Assembly">
+                            <img src="assets/images/event/independence-day-special-assembly-indian-students.png" alt="Students standing in disciplined house formations during flag hosting ceremony">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Independence Day Assembly</h5>
+                                <span>School Events</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 8: Spell Bee -->
+                    <div class="school-gallery-item classroom">
+                        <a href="assets/images/event/spell-bee-phonics-workshop-indian-students.png" class="popup-image" title="Spell-Bee & Phonics Workshop">
+                            <img src="assets/images/event/spell-bee-phonics-workshop-indian-students.png" alt="Students participating in interactive spelling matches in the library">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Spell-Bee & Phonics</h5>
+                                <span>Classroom Activities</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 9: Ganesha Making -->
+                    <div class="school-gallery-item arts classroom">
+                        <a href="assets/images/event/eco-friendly-ganesha-making-workshop-indian-students.png" class="popup-image" title="Eco-Friendly Ganesha Making Workshop">
+                            <img src="assets/images/event/eco-friendly-ganesha-making-workshop-indian-students.png" alt="Students molding clay Ganesha idols under sculptor guidance">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Ganesha Making Workshop</h5>
+                                <span>Arts / Classroom</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 10: Financial Literacy -->
+                    <div class="school-gallery-item classroom">
+                        <a href="assets/images/event/financial-literacy-savings-seminar-indian-students.png" class="popup-image" title="Financial Literacy & Savings Seminar">
+                            <img src="assets/images/event/financial-literacy-savings-seminar-indian-students.png" alt="Students displaying their handmade savings charts and piggy banks">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Financial Literacy Seminar</h5>
+                                <span>Classroom Activities</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 11: Fire Drill -->
+                    <div class="school-gallery-item classroom teachers">
+                        <a href="assets/images/fire-drill.png" class="popup-image" title="Emergency Safety Fire Drill Training">
+                            <img src="assets/images/fire-drill.png" alt="Students and teachers participating in fire safety drill guidelines on campus">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Emergency Fire Drill</h5>
+                                <span>Classroom / Teachers</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 12: Parade -->
+                    <div class="school-gallery-item sports event">
+                        <a href="assets/images/pared.png" class="popup-image" title="School Parade & March Past">
+                            <img src="assets/images/pared.png" alt="Students marching in uniform showing discipline during school celebration parade">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>March Past Parade</h5>
+                                <span>Sports / Events</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 13: Athletics -->
+                    <div class="school-gallery-item sports">
+                        <a href="assets/images/Sports, Arts & Co-Curriculars.png" class="popup-image" title="Athletics & Physical Training">
+                            <img src="assets/images/Sports, Arts & Co-Curriculars.png" alt="Primary students participating in fitness training activities on the sports field">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Athletics & Fitness</h5>
+                                <span>Sports</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 14: Academics -->
+                    <div class="school-gallery-item classroom teachers">
+                        <a href="assets/images/CBSE-Oriented Academics-01.png" class="popup-image" title="Academics & Classroom Interaction">
+                            <img src="assets/images/CBSE-Oriented Academics-01.png" alt="Teacher guiding students through interactive blackboard session">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>CBSE Classroom Session</h5>
+                                <span>Classroom / Teachers</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 15: Robotics Workshop -->
+                    <div class="school-gallery-item classroom">
+                        <a href="assets/images/Robotics & Science Workshops.png" class="popup-image" title="Robotics Laboratory Workshops">
+                            <img src="assets/images/Robotics & Science Workshops.png" alt="Students connecting wires and checking microcontrollers in STEM lab">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Robotics Lab Workshop</h5>
+                                <span>Classroom Activities</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 16: Preschool Activity -->
+                    <div class="school-gallery-item classroom teachers">
+                        <a href="assets/images/Nursery Preschool Program.png" class="popup-image" title="Preschool Activity-Based Learning">
+                            <img src="assets/images/Nursery Preschool Program.png" alt="Nursery kids doing sensory coordination and puzzle activities with blocks">
+                            <div class="school-gallery-overlay">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <div class="school-gallery-info">
+                                <h5>Preschool Learning</h5>
+                                <span>Classroom / Teachers</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                
             </div>
         </section>
-        <!-- gallery area end -->
+        <!-- Gallery Section End -->
 
-        <!-- blog area start -->
-        <section class="rs-blog-area section-space rs-blog-one bg-primary">
-            <div class="container">
-                <div class="row align-items-center g-5 section-title-space">
-                    <div class="col-xl-7 col-lg-7">
-                        <div class="section-title-wrapper">
-                            <span class="section-subtitle has-theme-blue is-uppercase">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M5.21484 12.8949V16.6564C5.21484 16.6564 8.82175 15.1537 12.0198 15.1537C15.2178 15.1537 18.8255 16.6564 18.8255 16.6564V12.8424C18.8255 12.8424 15.3844 11.0225 11.9665 11.0225C8.55018 11.021 5.21484 12.8949 5.21484 12.8949Z"></path>
-                                    <path d="M22.6467 11.9993L24 11.2716L22.6467 10.5222V10.1666C22.6467 10.1666 23.0278 8.23413 20.862 9.24464C20.7517 9.30465 20.6924 9.36542 20.6684 9.42468L11.7367 4.47119L0 11.1884L4.43211 13.2019V12.5485C4.43211 12.5485 8.15079 10.4607 11.9625 10.4607C15.7734 10.4607 19.6092 12.4899 19.6092 12.4899V13.631L22.0563 12.3167V17.6377H21.2416V19.529L22.3248 18.7803L23.5274 19.529V17.637H22.6467V11.9993ZM22.0555 9.83803V10.1944L21.3413 9.79827C21.6017 9.62573 22.0555 9.38642 22.0555 9.83803ZM21.814 11.9251C21.737 11.9279 21.6603 11.9152 21.5883 11.8877C21.5164 11.8602 21.4507 11.8185 21.3952 11.7651C21.3398 11.7117 21.2956 11.6476 21.2655 11.5768C21.2353 11.5059 21.2198 11.4297 21.2197 11.3527C21.2197 11.2757 21.2351 11.1994 21.2652 11.1285C21.2953 11.0576 21.3393 10.9935 21.3947 10.94C21.4501 10.8865 21.5157 10.8447 21.5876 10.8172C21.6595 10.7896 21.7362 10.7768 21.8132 10.7795C21.9615 10.7848 22.102 10.8474 22.2051 10.9542C22.3082 11.0609 22.3659 11.2035 22.366 11.3519C22.3661 11.5003 22.3086 11.643 22.2056 11.7499C22.1027 11.8568 21.9623 11.9196 21.814 11.9251Z"></path>
-                                </svg>
-                                School News
-                            </span>
-                            <h2 class="section-title rs-split-text-enable split-in-left has-theme-blue">Latest from Dnyanda School</h2>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-lg-5">
-                        <div class="rs-event-btn d-flex justify-content-lg-end">
-                            <a class="rs-btn has-icon hover-yellow" href="#">
-                                <span class="btn-text-wrap">
-                                    <span class="text-default">View All Posts</span>
-                                    <span class="text-hover">View All Posts</span>
-                                </span>
-                                <span class="icon-box has-rotate">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                        <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                        <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                        <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                        <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                        <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                    </svg>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="rs-blog-wrapper">
-                            <!-- Blog 1 -->
-                            <div class="rs-blog-item">
-                                <div class="rs-blog-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-blog-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/blog/blog-thumb-01.webp" alt="image">
-                                    </a>
-                                </div>
-                                <div class="rs-blog-content">
-                                    <div class="rs-blog-meta">
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-price-tag-3-line"></i>Education
-                                        </span>
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-calendar-line"></i>December 9, 2025
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-blog-title">
-                                        <a href="#">Building a Strong Foundation: Phonics and Reading at Dnyanda</a>
-                                    </h5>
-                                    <div class="rs-blog-meta-author">
-                                        <div class="rs-blog-meta-author-thumb">
-                                            <img src="assets/images/user/user-thumb-01.webp" alt="image">
-                                        </div>
-                                        <div class="rs-blog-meta-author-content">
-                                            <a href="#">Principal Message</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Blog 2 -->
-                            <div class="rs-blog-item">
-                                <div class="rs-blog-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-blog-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/blog/blog-thumb-02.webp" alt="image">
-                                    </a>
-                                </div>
-                                <div class="rs-blog-content">
-                                    <div class="rs-blog-meta">
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-price-tag-3-line"></i>Technology
-                                        </span>
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-calendar-line"></i>December 9, 2025
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-blog-title">
-                                        <a href="#">Why Financial Literacy and Robotics Matter in Early Grades</a>
-                                    </h5>
-                                    <div class="rs-blog-meta-author">
-                                        <div class="rs-blog-meta-author-thumb">
-                                            <img src="assets/images/user/user-thumb-02.webp" alt="image">
-                                        </div>
-                                        <div class="rs-blog-meta-author-content">
-                                            <a href="#">Academic Coordinator</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Blog 3 -->
-                            <div class="rs-blog-item">
-                                <div class="rs-blog-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-blog-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/blog/blog-thumb-03.webp" alt="image">
-                                    </a>
-                                </div>
-                                <div class="rs-blog-content">
-                                    <div class="rs-blog-meta">
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-price-tag-3-line"></i>Activity
-                                        </span>
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-calendar-line"></i>December 9, 2025
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-blog-title">
-                                        <a href="#">Experiential Learning: How Dnyanda Makes Science Fun</a>
-                                    </h5>
-                                    <div class="rs-blog-meta-author">
-                                        <div class="rs-blog-meta-author-thumb">
-                                            <img src="assets/images/user/user-thumb-03.webp" alt="image">
-                                        </div>
-                                        <div class="rs-blog-meta-author-content">
-                                            <a href="#">Science Department</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Blog 4 -->
-                            <div class="rs-blog-item">
-                                <div class="rs-blog-shape">
-                                    <img src="assets/images/shape/three-line-shape.webp" alt="">
-                                </div>
-                                <div class="rs-blog-thumb">
-                                    <a href="#">
-                                        <img src="assets/images/blog/blog-thumb-04.webp" alt="image">
-                                    </a>
-                                </div>
-                                <div class="rs-blog-content">
-                                    <div class="rs-blog-meta">
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-price-tag-3-line"></i>Sports
-                                        </span>
-                                        <span class="rs-blog-meta-item">
-                                            <i class="ri-calendar-line"></i>December 9, 2025
-                                        </span>
-                                    </div>
-                                    <h5 class="rs-blog-title">
-                                        <a href="#">Physical Education: Nurturing Healthy Minds and Bodies</a>
-                                    </h5>
-                                    <div class="rs-blog-meta-author">
-                                        <div class="rs-blog-meta-author-thumb">
-                                            <img src="assets/images/user/user-thumb-04.webp" alt="image">
-                                        </div>
-                                        <div class="rs-blog-meta-author-content">
-                                            <a href="#">Sports Instructor</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- blog area end -->
+        <!-- Gallery Filter script -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var filterButtons = document.querySelectorAll(".gallery-filter-wrapper .filter-btn");
+                var galleryItems = document.querySelectorAll(".school-gallery-grid .school-gallery-item");
+                
+                // Helper to initialize Magnific Popup on only visible items
+                function initLightbox() {
+                    if (window.jQuery && jQuery().magnificPopup) {
+                        // Destroy previous click bindings to prevent duplicates
+                        jQuery('.popup-image').off('click');
+                        
+                        // Bind only to visible elements
+                        jQuery('.school-gallery-grid .school-gallery-item:visible .popup-image').magnificPopup({
+                            type: 'image',
+                            gallery: {
+                                enabled: true
+                            },
+                            image: {
+                                titleSrc: function(item) {
+                                    return item.el.attr('title') || '';
+                                }
+                            }
+                        });
+                    }
+                }
+                
+                // Initialize on load
+                setTimeout(initLightbox, 500);
+                
+                filterButtons.forEach(function(button) {
+                    button.addEventListener("click", function() {
+                        // Remove active class from all buttons
+                        filterButtons.forEach(function(btn) {
+                            btn.classList.remove("active");
+                        });
+                        // Add active class to clicked button
+                        button.classList.add("active");
+                        
+                        var filter = button.getAttribute("data-filter");
+                        
+                        galleryItems.forEach(function(item) {
+                            if (filter === "all") {
+                                item.style.display = "block";
+                            } else {
+                                if (item.classList.contains(filter)) {
+                                    item.style.display = "block";
+                                } else {
+                                    item.style.display = "none";
+                                }
+                            }
+                        });
+                        
+                        // Re-initialize lightbox for only currently visible elements
+                        initLightbox();
+                        
+                        // Re-trigger layout/scroll trigger scroll animations if any exist
+                        if (typeof ScrollTrigger !== 'undefined') {
+                            ScrollTrigger.refresh();
+                        }
+                    });
+                });
+            });
+        </script>
 
     </main>
     <!-- Body main wrapper end -->
