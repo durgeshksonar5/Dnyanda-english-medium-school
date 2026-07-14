@@ -494,3 +494,21 @@ a {
     color: #E63946;
     border: 1px solid rgba(230, 57, 70, 0.3);
 }
+
+/* WhatsApp Theme overrides */
+.call-btn-primary.whatsapp-bg {
+    background: #25D366 !important;
+    color: #ffffff !important;
+}
+
+.call-btn-primary.whatsapp-bg:hover:not(:disabled) {
+    background: #20BA5A !important;
+}
+
+.whatsapp-theme .call-modal-close:hover {
+    color: #25D366 !important;
+}
+
+.whatsapp-theme input:focus {
+    border-color: #25D366 !important;
+}

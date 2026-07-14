@@ -41,3 +41,33 @@
         </form>
     </div>
 </div>
+
+<!-- Request WhatsApp Modal -->
+<div id="whatsapp-request-modal" class="call-modal-overlay">
+    <div class="call-modal-card whatsapp-theme">
+        <button class="call-modal-close" id="whatsapp-modal-close-btn" aria-label="Close modal">&times;</button>
+        <h4 class="call-modal-title">Request via WhatsApp</h4>
+        <p class="call-modal-subtitle">Please enter your details before connecting with us.</p>
+        
+        <form id="whatsapp-request-form">
+            <div class="call-modal-field">
+                <label for="modal-wa-fullname">Full Name*</label>
+                <input type="text" id="modal-wa-fullname" placeholder="Enter full name" required>
+                <span class="error-msg" id="modal-wa-fullname-error"></span>
+            </div>
+            
+            <div class="call-modal-field">
+                <label for="modal-wa-phone">Mobile Number*</label>
+                <input type="tel" id="modal-wa-phone" placeholder="Enter 10-digit mobile number" required maxlength="10">
+                <span class="error-msg" id="modal-wa-phone-error"></span>
+            </div>
+            
+            <div id="modal-wa-feedback" class="modal-feedback-box"></div>
+            
+            <div class="call-modal-actions">
+                <button type="button" class="call-btn-secondary" id="whatsapp-modal-cancel-btn">Cancel</button>
+                <button type="submit" class="call-btn-primary whatsapp-bg" id="whatsapp-modal-submit-btn">Continue to WhatsApp</button>
+            </div>
+        </form>
+    </div>
+</div>
