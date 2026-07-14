@@ -782,3 +782,10 @@ a {
     vertical-align: middle !important;
     display: inline-block !important;
 }
+
+/* Event Card Thumbnail Uniform Height */
+.rs-event-item .rs-event-thumb img {
+    height: 250px !important;
+    object-fit: cover !important;
+    width: 100% !important;
+}
