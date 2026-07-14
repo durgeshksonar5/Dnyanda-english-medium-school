@@ -129,9 +129,9 @@
                         <div class="row mt-50 justify-content-center">
                             <div class="col-12 text-center">
                                 <div class="admissions-actions">
-                                    <a href="#admission" class="btn btn-gradient animation" style="background: var(--color-primary); color: white; border: none; font-weight:700;"><i class="fa-solid fa-file-signature"></i> Apply for Admission</a>
-                                    <a href="#" id="cta-download-prospectus" class="btn btn-theme animation" style="background: var(--color-secondary); color: white; border: none; font-weight:700;"><i class="fa-solid fa-file-arrow-down"></i> Download Prospectus</a>
-                                    <a href="tel:+917557333222" id="cta-contact-admission" class="btn btn-theme animation" style="background: var(--color-dark); color: white; border: none; font-weight:700;"><i class="fa-solid fa-phone-volume"></i> Contact Admission Office</a>
+                                    <a href="#admission" class="btn btn-gradient animation" style="background: var(--color-primary); color: white; border: none; font-weight:700;">Apply for Admission</a>
+                                    <a href="#" id="cta-download-prospectus" class="btn btn-theme animation" style="background: var(--color-secondary); color: white; border: none; font-weight:700;">Download Prospectus</a>
+                                    <a href="tel:+917557333222" id="cta-contact-admission" class="btn btn-theme animation" style="background: var(--color-dark); color: white; border: none; font-weight:700;">Contact Admission Office</a>
                                 </div>
                             </div>
                         </div>
