@@ -48,4 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error loading centralized floating buttons:", err);
             });
     }
+
+    // 3. Load Leads Management Integration script dynamically
+    const leadScript = document.createElement("script");
+    leadScript.src = prefix + "assets/js/lead-integration.js";
+    document.body.appendChild(leadScript);
 });
