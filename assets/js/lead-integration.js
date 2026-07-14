@@ -133,7 +133,7 @@
         }
 
         // 2. Begin Child's Journey Admission Form (Index Body)
-        const admissionForm = document.querySelector('.admission-form-style-one form');
+        const admissionForm = document.getElementById('admission-form');
         if (admissionForm) {
             admissionForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
@@ -265,19 +265,151 @@
         }
     }
 
+    let modalOverlay = null;
+    let callForm = null;
+    let callUrl = "tel:+917557333222";
+
+    function initModalElements() {
+        modalOverlay = document.getElementById('call-request-modal');
+        if (!modalOverlay) return;
+
+        callForm = modalOverlay.querySelector('#call-request-form');
+        if (!callForm) return;
+
+        if (callForm.dataset.initialized) return;
+        callForm.dataset.initialized = "true";
+
+        const fullnameInput = callForm.querySelector('#modal-fullname');
+        const phoneInput = callForm.querySelector('#modal-phone');
+        const fullnameError = callForm.querySelector('#modal-fullname-error');
+        const phoneError = callForm.querySelector('#modal-phone-error');
+        const feedbackBox = modalOverlay.querySelector('#modal-feedback');
+        const cancelBtn = modalOverlay.querySelector('#call-modal-cancel-btn');
+        const closeBtn = modalOverlay.querySelector('#call-modal-close-btn');
+        const submitBtn = callForm.querySelector('#call-modal-submit-btn');
+
+        // Only allow numbers in mobile input
+        phoneInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        // Close on Cancel
+        cancelBtn.addEventListener('click', closeCallModal);
+        // Close on X
+        closeBtn.addEventListener('click', closeCallModal);
+        // Close on click outside
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeCallModal();
+            }
+        });
+
+        // ESC key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeCallModal();
+            }
+        });
+
+        function closeCallModal() {
+            modalOverlay.classList.remove('active');
+            callForm.reset();
+            fullnameError.innerText = "";
+            phoneError.innerText = "";
+            feedbackBox.className = "modal-feedback-box";
+            feedbackBox.style.display = "none";
+        }
+
+        // Form Submit
+        callForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            fullnameError.innerText = "";
+            phoneError.innerText = "";
+            feedbackBox.className = "modal-feedback-box";
+            feedbackBox.style.display = "none";
+
+            const fullname = fullnameInput.value.trim();
+            const phoneNum = phoneInput.value.trim();
+
+            let hasError = false;
+
+            // Full name validation: required, min 3 characters
+            if (!fullname) {
+                fullnameError.innerText = "Full Name is required.";
+                hasError = true;
+            } else if (fullname.length < 3) {
+                fullnameError.innerText = "Name must be at least 3 characters.";
+                hasError = true;
+            }
+
+            // Mobile number validation: required, numbers only, 10 digits
+            if (!phoneNum) {
+                phoneError.innerText = "Mobile Number is required.";
+                hasError = true;
+            } else if (!/^[0-9]{10}$/.test(phoneNum)) {
+                phoneError.innerText = "Mobile Number must be exactly 10 digits.";
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            // Show loading state
+            setLoadingState(submitBtn, true);
+
+            try {
+                const now = new Date();
+                const payload = {
+                    name: fullname,
+                    email: "",
+                    phone: phoneNum,
+                    message: `Callback requested via Floating Call Button. Date: ${now.toLocaleDateString()}, Time: ${now.toLocaleTimeString()}`,
+                    source: "Floating Contact Button",
+                    button_type: "Call",
+                    form_type: "Call",
+                    submission_date: now.toLocaleDateString(),
+                    submission_time: now.toLocaleTimeString(),
+                    page_url: window.location.href,
+                    page_title: document.title
+                };
+
+                await submitLead(payload);
+
+                // Success state
+                feedbackBox.innerText = "Thank you! Connecting your call...";
+                feedbackBox.className = "modal-feedback-box success";
+                feedbackBox.style.display = "block";
+
+                // Wait 1.5 seconds then open dialer and close modal
+                setTimeout(() => {
+                    window.location.href = callUrl;
+                    closeCallModal();
+                    setLoadingState(submitBtn, false);
+                }, 1500);
+
+            } catch (err) {
+                console.error("API Callback submission error:", err);
+                feedbackBox.innerText = "Unable to connect. Please check your internet connection.";
+                feedbackBox.className = "modal-feedback-box error";
+                feedbackBox.style.display = "block";
+                setLoadingState(submitBtn, false);
+            }
+        });
+    }
+
     // Initialize floating button tracking (using event delegation)
     function initFloatingButtons() {
         document.body.addEventListener('click', function (e) {
             const waLink = e.target.closest('.floating-whatsapp');
             const callLink = e.target.closest('.floating-call');
 
-            if (waLink || callLink) {
-                const buttonType = waLink ? 'WhatsApp' : 'Call';
+            if (waLink) {
                 const payload = {
                     name: "Website Visitor",
                     phone: "",
                     source: "Floating Button",
-                    button_type: buttonType,
+                    button_type: "WhatsApp",
                     page_url: window.location.href,
                     page_title: document.title
                 };
@@ -289,7 +421,22 @@
                     },
                     body: JSON.stringify(payload),
                     keepalive: true
-                }).catch(err => console.error("Error tracking floating button click:", err));
+                }).catch(err => console.error("Error tracking WhatsApp click:", err));
+            }
+
+            if (callLink) {
+                e.preventDefault();
+                callUrl = callLink.getAttribute('href') || "tel:+917557333222";
+                
+                initModalElements();
+                
+                if (modalOverlay) {
+                    modalOverlay.classList.add('active');
+                    const fullnameInput = modalOverlay.querySelector('#modal-fullname');
+                    if (fullnameInput) {
+                        setTimeout(() => fullnameInput.focus(), 100);
+                    }
+                }
             }
         });
     }

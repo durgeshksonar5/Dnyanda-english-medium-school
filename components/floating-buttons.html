@@ -11,3 +11,33 @@
         <span class="tooltip-text">WhatsApp Us</span>
     </a>
 </div>
+
+<!-- Request Call Modal -->
+<div id="call-request-modal" class="call-modal-overlay">
+    <div class="call-modal-card">
+        <button class="call-modal-close" id="call-modal-close-btn" aria-label="Close modal">&times;</button>
+        <h4 class="call-modal-title">Request a Call</h4>
+        <p class="call-modal-subtitle">Please enter your details before connecting with us.</p>
+        
+        <form id="call-request-form">
+            <div class="call-modal-field">
+                <label for="modal-fullname">Full Name*</label>
+                <input type="text" id="modal-fullname" placeholder="Enter full name" required>
+                <span class="error-msg" id="modal-fullname-error"></span>
+            </div>
+            
+            <div class="call-modal-field">
+                <label for="modal-phone">Mobile Number*</label>
+                <input type="tel" id="modal-phone" placeholder="Enter 10-digit mobile number" required maxlength="10">
+                <span class="error-msg" id="modal-phone-error"></span>
+            </div>
+            
+            <div id="modal-feedback" class="modal-feedback-box"></div>
+            
+            <div class="call-modal-actions">
+                <button type="button" class="call-btn-secondary" id="call-modal-cancel-btn">Cancel</button>
+                <button type="submit" class="call-btn-primary" id="call-modal-submit-btn">Continue to Call</button>
+            </div>
+        </form>
+    </div>
+</div>

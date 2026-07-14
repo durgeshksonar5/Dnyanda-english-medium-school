@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(html => {
                 const tempDiv = document.createElement("div");
                 tempDiv.innerHTML = html.trim();
-                if (tempDiv.firstElementChild) {
+                while (tempDiv.firstElementChild) {
                     document.body.appendChild(tempDiv.firstElementChild);
                 }
             })
