@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Admin Panel | Dnyanda English Medium School</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 6 for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Outfit Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --font-default: 'Outfit', sans-serif;
+            --color-primary: #A8C814;
+            --color-secondary: #1F7A8C;
+            --color-dark: #0D2B33;
+            --color-light: #F4F7F6;
+            --color-white: #FFFFFF;
+            --border-color: #DDE4D8;
+            --sidebar-width: 260px;
+        }
+
+        body {
+            font-family: var(--font-default);
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            overflow-x: hidden;
+        }
+
+        /* Login Page Styling */
+        .login-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-secondary) 100%);
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-brand {
+            padding: 25px 20px;
+            font-size: 20px;
+            font-weight: 800;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-primary);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 25px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-menu li a:hover,
+        .sidebar-menu li.active a {
+            color: var(--color-white);
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left-color: var(--color-primary);
+        }
+
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content Panel */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Navbar */
+        .top-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .top-navbar h2 {
+            font-weight: 700;
+            margin: 0;
+            color: var(--color-dark);
+        }
+
+        /* Dashboard Metric Cards */
+        .metric-card {
+            background-color: var(--color-white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .metric-icon {
+            font-size: 32px;
+            color: var(--color-secondary);
+            background-color: rgba(31, 122, 140, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 5px 0 0 0;
+            color: var(--color-dark);
+        }
+
+        .metric-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* Tabs Panes content animation */
+        .tab-pane-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .tab-pane-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card panels */
+        .admin-card {
+            background-color: var(--color-white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .admin-card-title {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--color-dark);
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Toggle Switches */
+        .form-switch .form-check-input {
+            width: 3em;
+            height: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Toast notification positioning */
+        .toast-container-custom {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+        }
+
+        /* Loading Spinner */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Sidebar Toggle for Mobile */
+        .sidebar-toggle-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--color-dark);
+            cursor: pointer;
+        }
+
+        @media (max-width: 991.98px) {
+            .sidebar {
+                left: calc(-1 * var(--sidebar-width));
+            }
+            .sidebar.mobile-open {
+                left: 0;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .sidebar-toggle-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loading-overlay" class="loader-wrapper d-none">
+        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container-custom" id="toast-container"></div>
+
+    <!-- ========================================
+         LOGIN INTERFACE
+         ======================================== -->
+    <div id="login-screen" class="login-wrapper">
+        <div class="login-card">
+            <div class="text-center mb-30">
+                <h4 style="font-weight:800; color: var(--color-dark); margin-bottom: 5px;">Dnyanda School</h4>
+                <p class="text-muted" style="font-size:14px;">Admissions Administration Portal</p>
+            </div>
+            <form id="admin-login-form">
+                <div class="mb-3">
+                    <label for="login-username" class="form-label" style="font-weight:600; font-size:14px;">Username</label>
+                    <input type="text" id="login-username" class="form-control" placeholder="Enter username (admin)" required style="border-radius:6px; min-height:42px;">
+                </div>
+                <div class="mb-4">
+                    <label for="login-password" class="form-label" style="font-weight:600; font-size:14px;">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="Enter password (dnyanda@admin)" required style="border-radius:6px; min-height:42px;">
+                </div>
+                <div class="text-danger mb-3 d-none" id="login-error-msg">Incorrect credentials. Please try again.</div>
+                <button type="submit" class="btn w-100 py-2 text-white font-weight-bold" style="background-color: var(--color-secondary); border: none; font-weight:700; border-radius:6px;">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================
+         ADMIN CONTROL PANEL
+         ======================================== -->
+    <div id="admin-panel" class="d-none">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Dnyanda Admin</span>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active" data-tab="overview">
+                    <a href="#overview"><i class="fa-solid fa-chart-line"></i> Overview</a>
+                </li>
+                <li data-tab="status">
+                    <a href="#status"><i class="fa-solid fa-toggle-on"></i> Admission Status</a>
+                </li>
+                <li data-tab="notices">
+                    <a href="#notices"><i class="fa-solid fa-bell"></i> Manage Notices</a>
+                </li>
+                <li data-tab="guides">
+                    <a href="#guides"><i class="fa-solid fa-file-invoice"></i> Manage Guides</a>
+                </li>
+                <li data-tab="documents">
+                    <a href="#documents"><i class="fa-solid fa-folder-open"></i> Prospectus & Docs</a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="btn btn-outline-danger btn-sm w-100" id="admin-logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Viewport -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <div class="top-navbar">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="sidebar-toggle-btn" id="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h2>Admissions Management Dashboard</h2>
+                </div>
+                <div>
+                    <a href="index.html" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-eye"></i> View Live Site</a>
+                </div>
+            </div>
+
+            <!-- Tab 1: Overview -->
+            <div id="tab-overview" class="tab-pane-content active">
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="metric-card">
+                            <div>
+                                <p class="metric-title">Admission Status</p>
+                                <h3 class="metric-value" id="metrics-status" style="font-size: 20px; font-weight:700;">Open</h3>
+                            </div>
+                            <div class="metric-icon"><i class="fa-solid fa-toggle-on"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="metric-card">
+                            <div>
+                                <p class="metric-title">Total Active Notices</p>
+                                <h3 class="metric-value" id="metrics-notices">0</h3>
+                            </div>
+                            <div class="metric-icon"><i class="fa-solid fa-bell"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="metric-card">
+                            <div>
+                                <p class="metric-title">Available Seats</p>
+                                <h3 class="metric-value" id="metrics-seats">0</h3>
+                            </div>
+                            <div class="metric-icon"><i class="fa-solid fa-chair"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="metric-card">
+                            <div>
+                                <p class="metric-title">Active Documents</p>
+                                <h3 class="metric-value" id="metrics-documents">0</h3>
+                            </div>
+                            <div class="metric-icon"><i class="fa-solid fa-file"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="admin-card">
+                            <h4 class="admin-card-title">Quick Actions & Shortcuts</h4>
+                            <div class="row g-3">
+                                <div class="col-md-3 col-sm-6">
+                                    <button class="btn btn-outline-secondary w-100 py-3 d-flex flex-column align-items-center gap-2" onclick="switchTab('status')">
+                                        <i class="fa-solid fa-power-off fa-2x text-primary"></i>
+                                        <span>Toggle Status</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <button class="btn btn-outline-secondary w-100 py-3 d-flex flex-column align-items-center gap-2" onclick="showAddNoticeModal()">
+                                        <i class="fa-solid fa-circle-plus fa-2x text-secondary"></i>
+                                        <span>Create Notice</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <button class="btn btn-outline-secondary w-100 py-3 d-flex flex-column align-items-center gap-2" onclick="switchTab('guides')">
+                                        <i class="fa-solid fa-edit fa-2x text-warning"></i>
+                                        <span>Edit Guides</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <button class="btn btn-outline-secondary w-100 py-3 d-flex flex-column align-items-center gap-2" onclick="switchTab('documents')">
+                                        <i class="fa-solid fa-upload fa-2x text-success"></i>
+                                        <span>Upload Brochure</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Admission Status -->
+            <div id="tab-status" class="tab-pane-content">
+                <div class="admin-card">
+                    <h4 class="admin-card-title">Admission Status Controls</h4>
+                    <form id="admission-status-form">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="status-isOpen">
+                                    <label class="form-check-label ms-2 font-weight-bold" for="status-isOpen" style="font-weight:600;">Enable Admissions Open Status</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-academicYear" class="form-label">Academic Year</label>
+                                    <input type="text" id="status-academicYear" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-startDate" class="form-label">Admission Start Date</label>
+                                    <input type="date" id="status-startDate" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-endDate" class="form-label">Admission End Date</label>
+                                    <input type="date" id="status-endDate" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-availableSeats" class="form-label">Available Seats</label>
+                                    <input type="number" id="status-availableSeats" class="form-control" required min="0">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-classesAvailable" class="form-label">Classes Offered</label>
+                                    <input type="text" id="status-classesAvailable" class="form-control" required placeholder="e.g. Nursery to Grade V">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="status-schoolTiming" class="form-label">School Timing</label>
+                                    <input type="text" id="status-schoolTiming" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-officeTiming" class="form-label">Office Timing</label>
+                                    <input type="text" id="status-officeTiming" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-contactNumber" class="form-label">Contact Number</label>
+                                    <input type="text" id="status-contactNumber" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status-admissionEmail" class="form-label">Admission Email</label>
+                                    <input type="email" id="status-admissionEmail" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-secondary mt-3 py-2 px-4" style="background-color: var(--color-secondary); border: none; font-weight:700;"><i class="fa-solid fa-save"></i> Save Status Settings</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tab 3: Manage Notices -->
+            <div id="tab-notices" class="tab-pane-content">
+                <div class="admin-card">
+                    <div class="admin-card-title">
+                        <span>Notice Board Database</span>
+                        <button class="btn btn-sm btn-gradient py-2 px-3 text-white" style="background-color: var(--color-primary); border:none; font-weight:700;" onclick="showAddNoticeModal()"><i class="fa-solid fa-circle-plus"></i> Create Notice</button>
+                    </div>
+
+                    <!-- Search & Filter Controls -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <input type="text" id="admin-notice-search" class="form-control" placeholder="Search by title...">
+                        </div>
+                        <div class="col-md-3">
+                            <select id="admin-notice-category" class="form-select">
+                                <option value="all">All Categories</option>
+                                <option value="General">General</option>
+                                <option value="Fee">Fee Structure</option>
+                                <option value="Documents">Documents</option>
+                                <option value="Scholarship">Scholarship</option>
+                                <option value="Timing">School Timings</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="admin-notice-status" class="form-select">
+                                <option value="all">All Statuses</option>
+                                <option value="published">Published</option>
+                                <option value="hidden">Hidden</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Publish Date</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Featured</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-notices-tbody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: Manage Guides (Quick Info) -->
+            <div id="tab-guides" class="tab-pane-content">
+                <div class="admin-card">
+                    <h4 class="admin-card-title">Manage Guide Information Cards</h4>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6 col-12">
+                            <label for="select-guide-category" class="form-label" style="font-weight: 600;">Select Guide Category to Manage</label>
+                            <select id="select-guide-category" class="form-select" style="min-height: 42px;">
+                                <option value="admissionProcess">Admission Process</option>
+                                <option value="requiredDocuments">Required Documents</option>
+                                <option value="feeStructure">Fee Structure</option>
+                                <option value="eligibility">Scholarship Information</option>
+                                <option value="schoolTimingText">School Timing Details</option>
+                                <option value="admissionGuidelines">General Guidelines</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Guidelines List Container -->
+                    <div class="border rounded p-4 bg-light">
+                        <h5 class="mb-3" style="font-weight:700;"><span id="active-guide-title">Admission Process</span> Items</h5>
+                        
+                        <!-- Add Item Row -->
+                        <form id="add-guide-item-form" class="row g-2 mb-4">
+                            <div class="col-md-9 col-12">
+                                <input type="text" id="new-guide-item-text" class="form-control" placeholder="Type a new item (no HTML allowed)" required style="min-height: 42px;">
+                            </div>
+                            <div class="col-md-3 col-12">
+                                <button type="submit" class="btn btn-secondary w-100 h-100" style="background-color: var(--color-secondary); border: none; font-weight:700; min-height: 42px;"><i class="fa-solid fa-plus"></i> Add Item</button>
+                            </div>
+                        </form>
+
+                        <!-- Items Table/List -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover bg-white align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 50px;" class="text-center">#</th>
+                                        <th>Guideline Text</th>
+                                        <th style="width: 180px;" class="text-end">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="guide-items-list-tbody">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: Manage Documents -->
+            <div id="tab-documents" class="tab-pane-content">
+                <div class="admin-card">
+                    <h4 class="admin-card-title">Manage Prospectus & Document Downloads</h4>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-12">
+                            <div class="p-3 border rounded mb-3 bg-light">
+                                <h5 style="font-weight:700;"><i class="fa-solid fa-file-pdf text-danger"></i> School Prospectus</h5>
+                                <p class="text-muted small">Upload the school prospectus PDF document for public downloads.</p>
+                                <input type="file" id="file-prospectus" class="form-control mb-3" accept=".pdf">
+                                <div id="prospectus-status" class="small text-muted">No file uploaded.</div>
+                            </div>
+                            <div class="p-3 border rounded mb-3 bg-light">
+                                <h5 style="font-weight:700;"><i class="fa-solid fa-file-pdf text-danger"></i> Admission Form Template</h5>
+                                <p class="text-muted small">Upload the standard offline admission form PDF.</p>
+                                <input type="file" id="file-admissionForm" class="form-control mb-3" accept=".pdf">
+                                <div id="admissionForm-status" class="small text-muted">No file uploaded.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="p-3 border rounded mb-3 bg-light">
+                                <h5 style="font-weight:700;"><i class="fa-solid fa-file-pdf text-danger"></i> Detailed Fee Structure</h5>
+                                <p class="text-muted small">Upload detailed term fee breakdowns PDF.</p>
+                                <input type="file" id="file-feeStructure" class="form-control mb-3" accept=".pdf">
+                                <div id="feeStructure-status" class="small text-muted">No file uploaded.</div>
+                            </div>
+                            <div class="p-3 border rounded mb-3 bg-light">
+                                <h5 style="font-weight:700;"><i class="fa-solid fa-file-pdf text-danger"></i> Transport Route details</h5>
+                                <p class="text-muted small">Upload the bus routes and fee details PDF.</p>
+                                <input type="file" id="file-transportDetails" class="form-control mb-3" accept=".pdf">
+                                <div id="transportDetails-status" class="small text-muted">No file uploaded.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ========================================
+         MODALS & DIALOGS
+         ======================================== -->
+
+    <!-- Add/Edit Notice Modal -->
+    <div class="modal fade" id="noticeModal" tabindex="-1" aria-hidden="true" style="z-index: 10500;">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius:12px;">
+                <div class="modal-header" style="border-radius:12px 12px 0 0; background: var(--color-light); padding:15px 20px;">
+                    <h5 class="modal-title" id="noticeModalLabel" style="font-weight:700;">Create Notice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="admin-notice-form">
+                    <div class="modal-body" style="padding:25px;">
+                        <input type="hidden" id="notice-id">
+                        
+                        <div class="mb-3">
+                            <label for="notice-form-title" class="form-label">Notice Title*</label>
+                            <input type="text" id="notice-form-title" class="form-control" required placeholder="Enter descriptive title">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="notice-form-desc" class="form-label">Notice Description*</label>
+                            <textarea id="notice-form-desc" class="form-control" rows="5" required placeholder="Enter full announcement content"></textarea>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="notice-form-category" class="form-label">Category*</label>
+                                <select id="notice-form-category" class="form-select" required>
+                                    <option value="General">General</option>
+                                    <option value="Fee">Fee Structure</option>
+                                    <option value="Documents">Documents</option>
+                                    <option value="Scholarship">Scholarship</option>
+                                    <option value="Timing">School Timings</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="notice-form-priority" class="form-label">Priority Level*</label>
+                                <select id="notice-form-priority" class="form-select" required>
+                                    <option value="1">1 - High Priority</option>
+                                    <option value="2">2 - Medium Priority</option>
+                                    <option value="3">3 - Low Priority</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="notice-form-publishDate" class="form-label">Publish Date*</label>
+                                <input type="date" id="notice-form-publishDate" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="notice-form-expiryDate" class="form-label">Expiry Date</label>
+                                <input type="date" id="notice-form-expiryDate" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="notice-form-pdf" class="form-label">Attach PDF</label>
+                                <input type="file" id="notice-form-pdf" class="form-control" accept=".pdf">
+                                <div id="notice-pdf-status" class="small text-muted mt-1">No document attached.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="notice-form-image" class="form-label">Upload Image banner</label>
+                                <input type="file" id="notice-form-image" class="form-control" accept="image/*">
+                                <div id="notice-image-status" class="small text-muted mt-1">No banner image uploaded.</div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4">
+                                <div class="form-check form-switch mt-2">
+                                    <input class="form-check-input" type="checkbox" id="notice-form-isNew" checked>
+                                    <label class="form-check-label ms-2" for="notice-form-isNew">Show "NEW" Badge</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check form-switch mt-2">
+                                    <input class="form-check-input" type="checkbox" id="notice-form-isFeatured">
+                                    <label class="form-check-label ms-2" for="notice-form-isFeatured">Feature Notice</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="notice-form-status" class="form-label">Publish Status</label>
+                                <select id="notice-form-status" class="form-select">
+                                    <option value="published">Published</option>
+                                    <option value="hidden">Hidden</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-light" style="border-radius:0 0 12px 12px;">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" style="background-color:var(--color-secondary); border:none;"><i class="fa-solid fa-check"></i> Save Notice</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap & jQuery JS -->
+    <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- admissions data store link -->
+    <script src="assets/js/admissions-data-store.js"></script>
+
+    <!-- Panel Controller JavaScript -->
+    <script>
+        let deletedNoticeBackups = null; // Storing notice for Undo
+
+        // 1. Session and Auth logic
+        function checkSession() {
+            if (sessionStorage.getItem('admissions_admin_auth') === 'true') {
+                document.getElementById('login-screen').classList.add('d-none');
+                document.getElementById('admin-panel').classList.remove('d-none');
+                initDashboardData();
+            } else {
+                document.getElementById('login-screen').classList.remove('d-none');
+                document.getElementById('admin-panel').classList.add('d-none');
+            }
+        }
+
+        document.getElementById('admin-login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const u = document.getElementById('login-username').value.trim();
+            const p = document.getElementById('login-password').value.trim();
+            
+            if (u === 'admin' && p === 'dnyanda@admin') {
+                sessionStorage.setItem('admissions_admin_auth', 'true');
+                document.getElementById('login-error-msg').classList.add('d-none');
+                checkSession();
+                showToast("Logged in successfully!", "success");
+            } else {
+                document.getElementById('login-error-msg').classList.remove('d-none');
+            }
+        });
+
+        document.getElementById('admin-logout-btn').addEventListener('click', function () {
+            sessionStorage.removeItem('admissions_admin_auth');
+            checkSession();
+            showToast("Logged out successfully.", "info");
+        });
+
+        // 2. Tab switcher helper
+        function switchTab(tabId) {
+            document.querySelectorAll('.sidebar-menu li').forEach(li => {
+                li.classList.remove('active');
+                if (li.dataset.tab === tabId) li.classList.add('active');
+            });
+            document.querySelectorAll('.tab-pane-content').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            const activeTab = document.getElementById('tab-' + tabId);
+            if (activeTab) activeTab.classList.add('active');
+
+            if (window.innerWidth < 992) {
+                document.querySelector('.sidebar').classList.remove('mobile-open');
+            }
+        }
+
+        document.querySelectorAll('.sidebar-menu li').forEach(li => {
+            li.addEventListener('click', function (e) {
+                e.preventDefault();
+                switchTab(this.dataset.tab);
+            });
+        });
+
+        // Responsive sidebar toggler
+        document.getElementById('sidebar-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('mobile-open');
+        });
+
+        // 3. Load & Render Dashboard Info
+        function initDashboardData() {
+            showLoading(true);
+            const store = window.AdmissionsDB.getStore();
+            const status = store.status;
+
+            // Fill Metrics
+            document.getElementById('metrics-status').innerText = status.isOpen ? "Open" : "Closed";
+            document.getElementById('metrics-status').style.color = status.isOpen ? "var(--color-primary)" : "#E63946";
+            document.getElementById('metrics-notices').innerText = store.notices.filter(n => n.status === 'published').length;
+            document.getElementById('metrics-seats').innerText = status.availableSeats;
+            
+            let uploadedDocs = 0;
+            for(let k in store.documents) { if(store.documents[k]) uploadedDocs++; }
+            document.getElementById('metrics-documents').innerText = uploadedDocs;
+
+            // Fill Status Form
+            document.getElementById('status-isOpen').checked = status.isOpen;
+            document.getElementById('status-academicYear').value = status.academicYear;
+            document.getElementById('status-startDate').value = status.startDate;
+            document.getElementById('status-endDate').value = status.endDate;
+            document.getElementById('status-availableSeats').value = status.availableSeats;
+            document.getElementById('status-classesAvailable').value = status.classesAvailable;
+            document.getElementById('status-schoolTiming').value = status.schoolTiming;
+            document.getElementById('status-officeTiming').value = status.officeTiming;
+            document.getElementById('status-contactNumber').value = status.contactNumber;
+            document.getElementById('status-admissionEmail').value = status.admissionEmail;
+
+            // Render Guidelines items
+            renderGuideItemsList();
+
+            // Render Documents List status
+            renderDocStatus('prospectus');
+            renderDocStatus('admissionForm');
+            renderDocStatus('feeStructure');
+            renderDocStatus('transportDetails');
+
+            // Render Notices
+            renderAdminNotices();
+
+            showLoading(false);
+        }
+
+        // Render document upload status labels
+        function renderDocStatus(key) {
+            const store = window.AdmissionsDB.getStore();
+            const statusEl = document.getElementById(key + '-status');
+            if (store.documents[key]) {
+                statusEl.innerHTML = `<span class="text-success"><i class="fa-solid fa-check-circle"></i> File uploaded</span> &bull; <a href="#" onclick="deleteDocument('${key}'); return false;" class="text-danger small ms-2">Delete</a>`;
+            } else {
+                statusEl.innerHTML = `<span class="text-muted"><i class="fa-solid fa-times-circle"></i> No file uploaded</span>`;
+            }
+        }
+
+        // Handle Document Deletes
+        function deleteDocument(key) {
+            if (confirm("Are you sure you want to delete this document?")) {
+                window.AdmissionsDB.updateDocument(key, "");
+                renderDocStatus(key);
+                showToast("Document deleted.", "info");
+                // Update metrics
+                initDashboardData();
+            }
+        }
+
+        // File to base64 reader helper
+        function handleFileAttachment(inputId, callback) {
+            const input = document.getElementById(inputId);
+            input.addEventListener('change', function () {
+                const file = this.files[0];
+                if (!file) return;
+
+                if (file.size > 2 * 1024 * 1024) { // Max size 2MB for localStorage capacity
+                    alert("File size exceeds 2MB limit. Please upload a smaller file.");
+                    this.value = "";
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    callback(e.target.result);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Bind document file uploads
+        handleFileAttachment('file-prospectus', (base64) => {
+            window.AdmissionsDB.updateDocument('prospectus', base64);
+            renderDocStatus('prospectus');
+            showToast("Prospectus PDF updated successfully!", "success");
+            initDashboardData();
+        });
+        handleFileAttachment('file-admissionForm', (base64) => {
+            window.AdmissionsDB.updateDocument('admissionForm', base64);
+            renderDocStatus('admissionForm');
+            showToast("Admission Form updated!", "success");
+            initDashboardData();
+        });
+        handleFileAttachment('file-feeStructure', (base64) => {
+            window.AdmissionsDB.updateDocument('feeStructure', base64);
+            renderDocStatus('feeStructure');
+            showToast("Fee Structure updated!", "success");
+            initDashboardData();
+        });
+        handleFileAttachment('file-transportDetails', (base64) => {
+            window.AdmissionsDB.updateDocument('transportDetails', base64);
+            renderDocStatus('transportDetails');
+            showToast("Transport Details updated!", "success");
+            initDashboardData();
+        });
+
+        // 4. Save Status Control Settings
+        document.getElementById('admission-status-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            showLoading(true);
+
+            const updatedStatus = {
+                isOpen: document.getElementById('status-isOpen').checked,
+                academicYear: document.getElementById('status-academicYear').value.trim(),
+                startDate: document.getElementById('status-startDate').value,
+                endDate: document.getElementById('status-endDate').value,
+                availableSeats: parseInt(document.getElementById('status-availableSeats').value),
+                classesAvailable: document.getElementById('status-classesAvailable').value.trim(),
+                schoolTiming: document.getElementById('status-schoolTiming').value.trim(),
+                officeTiming: document.getElementById('status-officeTiming').value.trim(),
+                contactNumber: document.getElementById('status-contactNumber').value.trim(),
+                admissionEmail: document.getElementById('status-admissionEmail').value.trim()
+            };
+
+            window.AdmissionsDB.updateStatus(updatedStatus);
+            
+            // Re-render
+            initDashboardData();
+            showLoading(false);
+            showToast("Admissions Status settings saved successfully!", "success");
+        });
+
+        // 5. Guides List Manager Logic
+        function renderGuideItemsList() {
+            const category = document.getElementById('select-guide-category').value;
+            const selectEl = document.getElementById('select-guide-category');
+            const activeTitle = selectEl.options[selectEl.selectedIndex].text;
+            
+            document.getElementById('active-guide-title').innerText = activeTitle;
+            
+            const store = window.AdmissionsDB.getStore();
+            const items = store.info[category] || [];
+            
+            const tbody = document.getElementById('guide-items-list-tbody');
+            if (items.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-3">No guidelines added in this category.</td></tr>`;
+                return;
+            }
+            
+            function escapeHtml(text) {
+                return text
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+            
+            tbody.innerHTML = items.map((item, index) => `
+                <tr id="guide-item-row-${index}">
+                    <td class="text-center font-weight-bold" style="font-weight:600;">${index + 1}</td>
+                    <td style="font-size:14px; line-height:1.5;">${escapeHtml(item)}</td>
+                    <td class="text-end">
+                        <button class="btn btn-outline-secondary btn-sm me-1" onclick="editGuideItemInline(${index})"><i class="fa-solid fa-pencil"></i></button>
+                        <button class="btn btn-outline-danger btn-sm" onclick="deleteGuideItem(${index})"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Dropdown selection change
+        document.getElementById('select-guide-category').addEventListener('change', renderGuideItemsList);
+
+        // Add item
+        document.getElementById('add-guide-item-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const input = document.getElementById('new-guide-item-text');
+            let textVal = input.value.trim();
+            
+            // Prevent / strip HTML (simple text format only)
+            textVal = textVal.replace(/<[^>]*>/g, '').trim();
+            
+            if (!textVal) {
+                alert("Please enter a valid non-empty guideline text.");
+                return;
+            }
+            
+            const category = document.getElementById('select-guide-category').value;
+            const store = window.AdmissionsDB.getStore();
+            const items = store.info[category] || [];
+            
+            // Check duplicates
+            if (items.includes(textVal)) {
+                alert("This guideline item already exists in this category.");
+                return;
+            }
+            
+            items.push(textVal);
+            store.info[category] = items;
+            window.AdmissionsDB.saveStore(store);
+            
+            input.value = "";
+            renderGuideItemsList();
+            showToast("Guideline item added successfully!", "success");
+            initDashboardData(); // Update document count / active guides
+        });
+
+        // Delete item
+        window.deleteGuideItem = function(index) {
+            if (confirm("Are you sure you want to delete this guideline item?")) {
+                const category = document.getElementById('select-guide-category').value;
+                const store = window.AdmissionsDB.getStore();
+                const items = store.info[category] || [];
+                
+                if (index >= 0 && index < items.length) {
+                    items.splice(index, 1);
+                    store.info[category] = items;
+                    window.AdmissionsDB.saveStore(store);
+                    renderGuideItemsList();
+                    showToast("Guideline item deleted.", "info");
+                    initDashboardData();
+                }
+            }
+        };
+
+        // Edit item inline
+        window.editGuideItemInline = function(index) {
+            const category = document.getElementById('select-guide-category').value;
+            const store = window.AdmissionsDB.getStore();
+            const items = store.info[category] || [];
+            const currentValue = items[index];
+
+            const row = document.getElementById(`guide-item-row-${index}`);
+            row.innerHTML = `
+                <td class="text-center font-weight-bold" style="font-weight:600;">${index + 1}</td>
+                <td>
+                    <input type="text" id="edit-item-input-${index}" class="form-control" value="${currentValue.replace(/"/g, '&quot;')}" style="min-height: 38px;">
+                </td>
+                <td class="text-end">
+                    <button class="btn btn-success btn-sm me-1" onclick="saveGuideItemInline(${index})"><i class="fa-solid fa-check"></i> Save</button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="renderGuideItemsList()"><i class="fa-solid fa-times"></i> Cancel</button>
+                </td>
+            `;
+        };
+
+        // Save inline item
+        window.saveGuideItemInline = function(index) {
+            const input = document.getElementById(`edit-item-input-${index}`);
+            let textVal = input.value.trim();
+            
+            // Prevent / strip HTML (simple text format only)
+            textVal = textVal.replace(/<[^>]*>/g, '').trim();
+            
+            if (!textVal) {
+                alert("Guideline text cannot be empty.");
+                return;
+            }
+
+            const category = document.getElementById('select-guide-category').value;
+            const store = window.AdmissionsDB.getStore();
+            const items = store.info[category] || [];
+            
+            items[index] = textVal;
+            store.info[category] = items;
+            window.AdmissionsDB.saveStore(store);
+            
+            renderGuideItemsList();
+            showToast("Guideline item updated successfully!", "success");
+        };
+
+        // 6. Manage Notices List (Table)
+        function renderAdminNotices() {
+            const store = window.AdmissionsDB.getStore();
+            let notices = [...store.notices];
+
+            // Filter search
+            const searchVal = document.getElementById('admin-notice-search').value.toLowerCase().trim();
+            if (searchVal) {
+                notices = notices.filter(n => n.title.toLowerCase().includes(searchVal));
+            }
+
+            // Filter Category
+            const catVal = document.getElementById('admin-notice-category').value;
+            if (catVal !== 'all') {
+                notices = notices.filter(n => n.category === catVal);
+            }
+
+            // Filter Status
+            const statusVal = document.getElementById('admin-notice-status').value;
+            if (statusVal !== 'all') {
+                notices = notices.filter(n => n.status === statusVal);
+            }
+
+            // Sort newest first
+            notices.sort((a,b) => new Date(b.publishDate) - new Date(a.publishDate));
+
+            const tbody = document.getElementById('admin-notices-tbody');
+            if (notices.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center py-4 text-muted">No notices found in database.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = notices.map(notice => {
+                const priorityBadge = notice.priority == 1 ? '<span class="badge bg-danger">High</span>' : notice.priority == 2 ? '<span class="badge bg-warning text-dark">Medium</span>' : '<span class="badge bg-info text-dark">Low</span>';
+                const statusBadge = notice.status === 'published' ? '<span class="badge bg-success">Published</span>' : notice.status === 'hidden' ? '<span class="badge bg-secondary">Hidden</span>' : '<span class="badge bg-dark">Archived</span>';
+                const featuredBadge = notice.isFeatured ? '<span class="text-warning"><i class="fa-solid fa-star"></i> Featured</span>' : '<span class="text-muted">No</span>';
+                
+                return `
+                    <tr>
+                        <td style="max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight:600;">${notice.title}</td>
+                        <td>${notice.category}</td>
+                        <td>${notice.publishDate}</td>
+                        <td>${priorityBadge}</td>
+                        <td>${statusBadge}</td>
+                        <td>${featuredBadge}</td>
+                        <td class="text-end">
+                            <button class="btn btn-outline-secondary btn-sm me-1" onclick="editNotice('${notice.id}')"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="confirmDeleteNotice('${notice.id}')"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Attach listeners to filter dropdowns
+        document.getElementById('admin-notice-search').addEventListener('input', renderAdminNotices);
+        document.getElementById('admin-notice-category').addEventListener('change', renderAdminNotices);
+        document.getElementById('admin-notice-status').addEventListener('change', renderAdminNotices);
+
+        // Add / Edit Notice Modal helpers
+        let tempPDFBase64 = "";
+        let tempImageBase64 = "";
+
+        // Bind modal attachment preview readers
+        handleFileAttachment('notice-form-pdf', (base64) => {
+            tempPDFBase64 = base64;
+            document.getElementById('notice-pdf-status').innerHTML = '<span class="text-success"><i class="fa-solid fa-check"></i> Document Attached</span>';
+        });
+
+        handleFileAttachment('notice-form-image', (base64) => {
+            tempImageBase64 = base64;
+            document.getElementById('notice-image-status').innerHTML = '<span class="text-success"><i class="fa-solid fa-check"></i> Image Banner Uploaded</span>';
+        });
+
+        function showAddNoticeModal() {
+            document.getElementById('noticeModalLabel').innerText = "Create Notice";
+            document.getElementById('notice-id').value = "";
+            document.getElementById('admin-notice-form').reset();
+            tempPDFBase64 = "";
+            tempImageBase64 = "";
+            document.getElementById('notice-pdf-status').innerHTML = '<span class="text-muted">No document attached.</span>';
+            document.getElementById('notice-image-status').innerHTML = '<span class="text-muted">No banner image uploaded.</span>';
+            document.getElementById('notice-form-publishDate').value = new Date().toISOString().split('T')[0];
+
+            const noticeModal = new bootstrap.Modal(document.getElementById('noticeModal'));
+            noticeModal.show();
+        }
+
+        function editNotice(id) {
+            const store = window.AdmissionsDB.getStore();
+            const notice = store.notices.find(n => n.id === id);
+            if (!notice) return;
+
+            document.getElementById('noticeModalLabel').innerText = "Edit Notice";
+            document.getElementById('notice-id').value = notice.id;
+            document.getElementById('notice-form-title').value = notice.title;
+            document.getElementById('notice-form-desc').value = notice.description;
+            document.getElementById('notice-form-category').value = notice.category;
+            document.getElementById('notice-form-priority').value = notice.priority;
+            document.getElementById('notice-form-publishDate').value = notice.publishDate;
+            document.getElementById('notice-form-expiryDate').value = notice.expiryDate || "";
+            document.getElementById('notice-form-isNew').checked = notice.isNew;
+            document.getElementById('notice-form-isFeatured').checked = notice.isFeatured;
+            document.getElementById('notice-form-status').value = notice.status;
+
+            tempPDFBase64 = notice.pdfUrl || "";
+            tempImageBase64 = notice.imageUrl || "";
+
+            document.getElementById('notice-pdf-status').innerHTML = notice.pdfUrl ? '<span class="text-success"><i class="fa-solid fa-check"></i> Document Attached (PDF)</span>' : '<span class="text-muted">No document attached.</span>';
+            document.getElementById('notice-image-status').innerHTML = notice.imageUrl ? '<span class="text-success"><i class="fa-solid fa-check"></i> Image Banner Uploaded</span>' : '<span class="text-muted">No banner image uploaded.</span>';
+
+            const noticeModal = new bootstrap.Modal(document.getElementById('noticeModal'));
+            noticeModal.show();
+        }
+
+        // Form Submit Notice Add/Edit
+        document.getElementById('admin-notice-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const id = document.getElementById('notice-id').value;
+            const title = document.getElementById('notice-form-title').value.trim();
+            const description = document.getElementById('notice-form-desc').value.trim();
+            const category = document.getElementById('notice-form-category').value;
+            const priority = parseInt(document.getElementById('notice-form-priority').value);
+            const publishDate = document.getElementById('notice-form-publishDate').value;
+            const expiryDate = document.getElementById('notice-form-expiryDate').value;
+            const isNew = document.getElementById('notice-form-isNew').checked;
+            const isFeatured = document.getElementById('notice-form-isFeatured').checked;
+            const status = document.getElementById('notice-form-status').value;
+
+            // Sanitize & validate
+            if (!title || !description) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            const noticeData = {
+                title,
+                description,
+                category,
+                priority,
+                publishDate,
+                expiryDate,
+                pdfUrl: tempPDFBase64,
+                imageUrl: tempImageBase64,
+                isNew,
+                isFeatured,
+                status
+            };
+
+            if (id) {
+                // Update
+                window.AdmissionsDB.updateNotice(id, noticeData);
+                showToast("Notice updated successfully!", "success");
+            } else {
+                // Check duplicates
+                const store = window.AdmissionsDB.getStore();
+                const dup = store.notices.find(n => n.title.toLowerCase() === title.toLowerCase());
+                if (dup) {
+                    alert("A notice with this exact title already exists.");
+                    return;
+                }
+                // Add
+                window.AdmissionsDB.addNotice(noticeData);
+                showToast("Notice created successfully!", "success");
+            }
+
+            // Close modal and refresh list
+            const modalEl = document.getElementById('noticeModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalEl);
+            modalInstance.hide();
+
+            initDashboardData();
+        });
+
+        // Notice Deletes
+        function confirmDeleteNotice(id) {
+            if (confirm("Are you sure you want to delete this notice? This action can be undone.")) {
+                const deleted = window.AdmissionsDB.deleteNotice(id);
+                if (deleted) {
+                    deletedNoticeBackups = deleted;
+                    showToast(`Notice deleted. <a href="#" onclick="undoNoticeDelete(); return false;" class="text-white text-decoration-underline ms-2 font-weight-bold"><strong>UNDO</strong></a>`, "warning");
+                    initDashboardData();
+                }
+            }
+        }
+
+        // Undo Notice Delete
+        function undoNoticeDelete() {
+            if (deletedNoticeBackups) {
+                const store = window.AdmissionsDB.getStore();
+                store.notices.push(deletedNoticeBackups);
+                window.AdmissionsDB.saveStore(store);
+                deletedNoticeBackups = null;
+                showToast("Delete undone. Notice restored!", "success");
+                initDashboardData();
+            }
+        }
+
+        // 7. Visual helper toast
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toastId = 'toast-' + Date.now();
+            
+            let bgClass = "bg-success";
+            let iconClass = "fa-check-circle";
+            if (type === "warning") {
+                bgClass = "bg-warning text-dark";
+                iconClass = "fa-triangle-exclamation";
+            } else if (type === "error") {
+                bgClass = "bg-danger";
+                iconClass = "fa-circle-xmark";
+            } else if (type === "info") {
+                bgClass = "bg-info text-dark";
+                iconClass = "fa-circle-info";
+            }
+
+            const toastHTML = `
+                <div id="${toastId}" class="toast align-items-center text-white ${bgClass} border-0 show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
+                    <div class="d-flex">
+                        <div class="toast-body d-flex align-items-center gap-2">
+                            <i class="fa-solid ${iconClass}"></i>
+                            <span>${message}</span>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', toastHTML);
+
+            // Auto remove toast after delay
+            const toastEl = document.getElementById(toastId);
+            setTimeout(() => {
+                if (toastEl) {
+                    const bsToast = new bootstrap.Toast(toastEl);
+                    bsToast.hide();
+                    setTimeout(() => toastEl.remove(), 500);
+                }
+            }, 4000);
+        }
+
+        function showLoading(show) {
+            const loader = document.getElementById('loading-overlay');
+            if (show) loader.classList.remove('d-none');
+            else loader.classList.add('d-none');
+        }
+
+        // Run Init
+        checkSession();
+    </script>
+</body>
+</html>

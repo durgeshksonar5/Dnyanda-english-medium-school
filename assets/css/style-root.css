@@ -512,3 +512,273 @@ a {
 .whatsapp-theme input:focus {
     border-color: #25D366 !important;
 }
+
+/* ----------------------------------
+   New Admissions Section Styles
+---------------------------------- */
+.admissions-section-area {
+    background: #F8FAF6;
+}
+
+.admission-status-box {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.admission-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.admission-badge.open {
+    background: rgba(168, 200, 20, 0.15);
+    color: var(--color-primary);
+}
+
+.admission-badge.closed {
+    background: rgba(230, 57, 70, 0.15);
+    color: #E63946;
+}
+
+.pulse-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.admission-badge.open .pulse-dot {
+    background: var(--color-primary);
+}
+
+.admission-badge.closed .pulse-dot {
+    background: #E63946;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: pulse-anim 1.5s infinite ease-in-out;
+}
+
+.admission-badge.open .pulse-dot::after {
+    box-shadow: 0 0 0 6px rgba(168, 200, 20, 0.4);
+}
+
+.admission-badge.closed .pulse-dot::after {
+    box-shadow: 0 0 0 6px rgba(230, 57, 70, 0.4);
+}
+
+@keyframes pulse-anim {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+.admission-info-card {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    height: auto;
+}
+
+.admission-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admission-info-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.admission-info-list li:last-child {
+    border-bottom: none;
+}
+
+.admission-info-list li span.label {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.admission-info-list li span.value {
+    color: var(--text-color);
+    text-align: right;
+}
+
+/* Notices Cards styling */
+.notice-item-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    padding: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notice-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.notice-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.notice-category {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    background: rgba(31, 122, 140, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.notice-new-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-white);
+    background: var(--color-primary);
+    padding: 3px 8px;
+    border-radius: 4px;
+    animation: flash-badge 2s infinite alternate;
+}
+
+@keyframes flash-badge {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.notice-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-dark);
+    line-height: 1.4;
+}
+
+.notice-desc {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.notice-meta-row {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+/* Quick Info Cards */
+.quick-info-box-wrapper {
+    margin-top: 50px;
+}
+
+.quick-info-grid-card {
+    background: var(--color-white);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quick-info-grid-card:hover {
+    background: var(--color-secondary);
+    color: var(--color-white) !important;
+    border-color: var(--color-secondary);
+}
+
+.quick-info-grid-card:hover h5, 
+.quick-info-grid-card:hover i {
+    color: var(--color-white) !important;
+}
+
+.quick-info-grid-card i {
+    font-size: 24px;
+    color: var(--color-secondary);
+    transition: color 0.3s ease;
+}
+
+.quick-info-grid-card h5 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-dark);
+    transition: color 0.3s ease;
+}
+
+/* Search and Filters */
+.admissions-filter-bar {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* General button alignments */
+.admissions-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+.admissions-actions .btn {
+    min-width: 200px;
+}
+
+.admissions-actions .btn i {
+    transform: none !important;
+    margin-right: 8px !important;
+    margin-left: 0 !important;
+    top: 0 !important;
+    font-size: 16px !important;
+    vertical-align: middle !important;
+    display: inline-block !important;
+}
