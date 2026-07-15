@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Meet our Secretary, Principal, and Leadership Team committed to academic excellence and holistic student development at Dnyanda English Medium School, Alandi, Pune.">
+
+    <!-- ========== Page Title ========== -->
+    <title>Our Leadership | Dnyanda English Medium School</title>
+
+    <!-- ========== Favicon ========== -->
+    <link rel="shortcut icon" href="assets/images/dnayanda-logo-transferent.png" type="image/x-icon">
+
+    <!-- ========== Stylesheets ========== -->
+    <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="assets/css/plugins/animate.min.css" rel="stylesheet">
+    <link href="assets/css/plugins/validnavs.css" rel="stylesheet">
+    <link href="assets/css/helper.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-root.css" rel="stylesheet">
+    <link href="assets/css/preloader.css" rel="stylesheet">
+    <link href="assets/css/header.css" rel="stylesheet">
+    <link href="assets/css/footer.css" rel="stylesheet">
+
+    <style>
+        /* ================================================
+           PAGE-SCOPED STYLES — Our Leadership
+           ================================================ */
+
+        /* Hero section uses rs-breadcrumb classes from main.css — no extra CSS needed */
+
+        /* ── Section Heading ── */
+        .section-label-pill {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(168,200,20,0.12), rgba(31,122,140,0.08));
+            border: 1px solid rgba(168,200,20,0.25);
+            color: var(--color-secondary);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 7px 22px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+
+        /* ── Secretary Section ── */
+        .secretary-section {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b2a3b 40%, #16213e 100%);
+            padding: 90px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .secretary-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4af37, #f5e17a, #d4af37, transparent);
+        }
+        .secretary-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4af37, #f5e17a, #d4af37, transparent);
+        }
+        .secretary-section .sec-glow-1 {
+            position: absolute; top: -80px; right: -80px;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .secretary-section .sec-glow-2 {
+            position: absolute; bottom: -60px; left: -60px;
+            width: 280px; height: 280px;
+            background: radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Secretary photo frame */
+        .sec-photo-wrap {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .sec-photo-ring {
+            position: absolute;
+            inset: -6px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #d4af37, #f5e17a, #d4af37);
+            z-index: 0;
+            opacity: 0.85;
+        }
+        .sec-photo-inner {
+            position: relative;
+            z-index: 1;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+        }
+        .sec-photo-inner img {
+            width: 100%;
+            display: block;
+            border-radius: 14px;
+        }
+        .sec-badge {
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #d4af37, #f5e17a);
+            color: #0d1b2a;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 10px 28px;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 6px 20px rgba(212,175,55,0.45);
+            z-index: 2;
+        }
+
+        /* Secretary message */
+        .sec-message-col { padding-top: 20px; }
+        .sec-big-quote {
+            font-size: 110px;
+            line-height: 0.6;
+            color: #d4af37;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            margin-bottom: 20px;
+            user-select: none;
+        }
+        .sec-blockquote {
+            font-size: 21px;
+            font-style: italic;
+            color: #f5e17a;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 28px;
+            margin-top: -10px;
+            border: none;
+            padding: 0;
+        }
+        .sec-body-text {
+            font-size: 15.5px;
+            line-height: 1.9;
+            margin-bottom: 16px;
+            color: rgba(255,255,255,0.82);
+        }
+        .sec-signature {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-top: 1px solid rgba(212,175,55,0.3);
+            padding-top: 26px;
+            margin-top: 8px;
+        }
+        .sec-signature-line {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f5e17a);
+            flex-shrink: 0;
+        }
+        .sec-signature-name {
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 0.3px;
+            margin-bottom: 3px;
+        }
+        .sec-signature-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #f5e17a;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .sec-signature-school {
+            font-size: 11px;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        /* ── Principal Section ── */
+        .principal-section {
+            background: var(--section-bg);
+            padding: 90px 0;
+        }
+        .principal-photo-wrap {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 50px rgba(13,43,51,0.15);
+        }
+        .principal-photo-wrap img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+            transition: transform 0.5s ease;
+        }
+        .principal-photo-wrap:hover img { transform: scale(1.03); }
+        .principal-photo-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-secondary);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 9px 26px;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 6px 20px rgba(31,122,140,0.4);
+        }
+        .principal-blockquote {
+            font-size: 19px;
+            font-style: italic;
+            border-left: 4px solid var(--color-primary);
+            padding-left: 22px;
+            margin-bottom: 24px;
+            color: var(--color-dark);
+            font-weight: 600;
+            line-height: 1.6;
+        }
+        .principal-body-text {
+            font-size: 15.5px;
+            line-height: 1.85;
+            color: var(--text-color);
+            margin-bottom: 14px;
+        }
+        .principal-signature {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-top: 2px solid var(--border-color);
+            padding-top: 22px;
+            margin-top: 10px;
+        }
+        .principal-signature-line {
+            width: 40px;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .principal-sig-name {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--color-dark);
+            margin-bottom: 2px;
+        }
+        .principal-sig-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ── Leadership Team Grid ── */
+        .leadership-team-section {
+            background: #fff;
+            padding: 90px 0;
+        }
+        .leadership-team-section .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 50px;
+        }
+        @media (max-width: 991px) {
+            .leadership-team-section .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+        @media (max-width: 575px) {
+            .leadership-team-section .team-grid { grid-template-columns: 1fr; gap: 16px; }
+        }
+
+        /* Team Card */
+        .team-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(13,43,51,0.08);
+            border: 1px solid rgba(13,43,51,0.06);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(13,43,51,0.14);
+        }
+        .team-card-photo {
+            width: 100px;
+            height: 100px;
+            margin: 28px auto 6px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f0d8, #d4eaf0);
+            border: 4px solid var(--border-color);
+            box-shadow: 0 8px 20px rgba(13,43,51,0.08);
+            transition: transform 0.35s ease, border-color 0.35s ease;
+        }
+        .team-card:hover .team-card-photo {
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+        }
+        .team-card-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .team-card-body {
+            padding: 16px 20px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .team-card-role {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(168,200,20,0.1), rgba(31,122,140,0.06));
+            border: 1px solid rgba(168,200,20,0.2);
+            color: var(--color-secondary);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+        .team-card-name {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--color-dark);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .team-card-message {
+            font-size: 13.5px;
+            color: var(--text-color);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 0;
+        }
+        .team-card-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: 1px;
+            margin-top: 18px;
+            width: 40px;
+            transition: width 0.3s ease;
+        }
+        .team-card:hover .team-card-divider { width: 70px; }
+
+        /* ── Values Section ── */
+        .values-section {
+            background: var(--section-bg);
+            padding: 90px 0;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 50px;
+        }
+        @media (max-width: 991px) {
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 575px) {
+            .values-grid { grid-template-columns: 1fr; gap: 18px; }
+        }
+        .value-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 36px 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(13,43,51,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(13,43,51,0.12);
+            border-color: var(--color-primary);
+        }
+        .value-icon {
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, rgba(168,200,20,0.12), rgba(31,122,140,0.08));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--color-secondary);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .value-card:hover .value-icon {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: #fff;
+            transform: scale(1.1) rotate(-5deg);
+        }
+        .value-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--color-dark);
+            margin-bottom: 10px;
+        }
+        .value-desc {
+            font-size: 14px;
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ── CTA Section ── */
+        .leadership-cta {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-dark) 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .leadership-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .leadership-cta .cta-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .leadership-cta .cta-subtitle {
+            font-size: 17px;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 36px;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-primary);
+            color: var(--color-dark);
+            font-weight: 800;
+            font-size: 15px;
+            padding: 15px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(168,200,20,0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .cta-btn-primary:hover {
+            background: #CBE567;
+            color: var(--color-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(168,200,20,0.5);
+            text-decoration: none;
+        }
+        .cta-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px 34px;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+        .cta-btn-outline:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: #fff;
+            color: #fff;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        /* ── Responsive helpers ── */
+        @media (max-width: 991px) {
+            .secretary-section,
+            .principal-section,
+            .leadership-team-section,
+            .values-section,
+            .leadership-hero { padding: 70px 0; }
+            .leadership-cta { padding: 60px 0; }
+            .sec-message-col { padding-top: 40px; }
+        }
+        @media (max-width: 575px) {
+            .secretary-section,
+            .principal-section,
+            .leadership-team-section,
+            .values-section,
+            .leadership-hero { padding: 55px 0; }
+        }
+
+        /* Page breadcrumb banner bg */
+        .page-banner-area {
+            background: linear-gradient(135deg, #0D2B33, #1b3d48);
+            padding: 30px 0 0;
+        }
+    </style>
+</head>
+
+<body class="theme-style-three">
+
+    <!-- ========== Preloader ========== -->
+    <div id="preloader">
+        <div id="edufix-preloader" class="edufix-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+                <div class="txt-loading">
+                    <span data-text-preloader="D" class="letters-loading">D</span>
+                    <span data-text-preloader="N" class="letters-loading">N</span>
+                    <span data-text-preloader="Y" class="letters-loading">Y</span>
+                    <span data-text-preloader="A" class="letters-loading">A</span>
+                    <span data-text-preloader="N" class="letters-loading">N</span>
+                    <span data-text-preloader="D" class="letters-loading">D</span>
+                    <span data-text-preloader="A" class="letters-loading">A</span>
+                </div>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                    <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                    <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+                    <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- ========== Header ========== -->
+    <header>
+        <nav class="navbar mobile-sidenav navbar-sticky navbar-default validnavs white navbar-fixed no-background">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/logo/dnayanda-logo-transferent.png" class="logo logo-display" alt="Logo">
+                        <img src="assets/images/logo/dnayanda-logo-transferent.png" class="logo logo-scrolled" alt="Logo">
+                    </a>
+                </div>
+
+                <div class="nav-item-box d-flex justify-content-between align-items-center">
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <img src="assets/images/logo/dnayanda-logo-transferent.png" alt="Logo">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-times"></i>
+                        </button>
+
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="dropdown active">
+                                <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li class="active"><a href="our-leadership.html" class="active">Our Leadership</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="admission-requirements.html">Admission Requirements</a></li>
+                            <li><a href="program.html">Programs</a></li>
+                            <li><a href="event.html">Events</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="attr-right">
+                        <div class="attr-nav">
+                            <ul>
+                                <li class="button">
+                                    <a href="contact.html">
+                                        <i class="fa-solid fa-phone"></i> Contact Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay-screen"></div>
+        </nav>
+    </header>
+    <!-- End Header -->
+
+
+    <!-- ========================================================
+         HERO SECTION — same style as about.html
+         ======================================================== -->
+    <section class="rs-breadcrumb-area rs-breadcrumb-one p-relative section-space">
+        <div class="rs-breadcrumb-bg-thumb include-bg" data-background="assets/images/dnyanda-building-pages-hero.png">
+        </div>
+        <div class="container-fluid g-0">
+            <div class="row">
+                <div class="col-xl-6 col-lg-10">
+                    <div class="rs-breadcrumb-wrapper">
+                        <div class="rs-breadcrumb-menu">
+                            <nav>
+                                <ul>
+                                    <li class="rs-breadcumb-item">
+                                        <a href="index.html">Home</a>
+                                        <span class="rs-breadcrumb-icon">
+                                            <svg class="e-font-icon-svg e-fas-angle-double-right" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path>
+                                            </svg>
+                                        </span>
+                                    </li>
+                                    <li class="rs-breadcumb-item">
+                                        <a href="about.html">About</a>
+                                        <span class="rs-breadcrumb-icon">
+                                            <svg class="e-font-icon-svg e-fas-angle-double-right" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path>
+                                            </svg>
+                                        </span>
+                                    </li>
+                                    <li class="rs-breadcumb-item">
+                                        Our Leadership
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="rs-breadcrumb-title-wrapper">
+                            <h1 class="rs-breadcrumb-title">Our Leadership</h1>
+                            <span class="rs-breadcrumb-line"></span>
+                        </div>
+                        <p class="rs-breadcrumb-desc">Meet the visionaries and educators dedicated to shaping bright futures at Dnyanda English Medium School.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero -->
+
+
+    <!-- ========================================================
+         SECRETARY SECTION (Higher Authority)
+         ======================================================== -->
+    <section class="secretary-section" id="secretary">
+        <div class="sec-glow-1"></div>
+        <div class="sec-glow-2"></div>
+        <div class="container" style="position:relative; z-index:2;">
+
+            <!-- Section Label -->
+            <div class="text-center wow fadeInDown" style="margin-bottom: 50px;">
+                <span class="section-label-pill" style="background: linear-gradient(135deg,#d4af37,#f5e17a); color:#0d1b2a; border:none;">School Leadership</span>
+                <h2 style="color:#fff; font-size:clamp(28px,5vw,40px); font-weight:900; margin:0; letter-spacing:-0.5px;">
+                    Message from the <span style="background:linear-gradient(90deg,#d4af37,#f5e17a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Secretary</span>
+                </h2>
+                <div style="width:70px;height:3px;background:linear-gradient(90deg,#d4af37,#f5e17a);margin:16px auto 0;border-radius:2px;"></div>
+            </div>
+
+            <div class="row align-items-center">
+                <!-- Photo -->
+                <div class="col-lg-4 col-md-6 col-12 mb-5 mb-lg-0 wow fadeInLeft" data-wow-delay="100ms">
+                    <div class="sec-photo-wrap">
+                        <div class="sec-photo-ring"></div>
+                        <div class="sec-photo-inner">
+                            <img src="assets/images/sectory.jpeg" alt="Sudhir V. Mungase — Secretary">
+                        </div>
+                        <div class="sec-badge">✦ Secretary ✦</div>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="col-lg-8 col-md-12 col-12 sec-message-col wow fadeInRight" data-wow-delay="200ms" style="padding-left:clamp(15px,5vw,60px);">
+                    
+                    <blockquote class="sec-blockquote">
+                        "A school is not merely a building — it is a place where futures are forged, character is strengthened, and leaders are born."
+                    </blockquote>
+                    <p class="sec-body-text">
+                        As Secretary of Dnyanda English Medium School, I consider it my highest privilege to lead and serve an institution dedicated to shaping tomorrow's leaders. My commitment has always been to build a school where academic excellence walks hand in hand with strong moral values, discipline, and a sense of social responsibility.
+                    </p>
+                    <p class="sec-body-text">
+                        I firmly believe that every child carries within him or her the potential for greatness. It is our duty as educators and administrators to nurture that potential — to provide the right environment, the right guidance, and the right opportunities so that each student can rise to his or her fullest capability.
+                    </p>
+                    <p class="sec-body-text" style="margin-bottom:28px;">
+                        I extend my heartfelt welcome to every parent and student who chooses to be a part of the Dnyanda family. Together, let us build a legacy of knowledge, integrity, and achievement that our children will carry forward with pride.
+                    </p>
+                    <div class="sec-signature">
+                        <div class="sec-signature-line"></div>
+                        <div>
+                            <div class="sec-signature-name">Sudhir V. Mungase</div>
+                            <div class="sec-signature-title">Secretary</div>
+                            <div class="sec-signature-school">Dnyanda English Medium School</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Secretary Section -->
+
+
+    <!-- ========================================================
+         PRINCIPAL SECTION
+         ======================================================== -->
+    <section class="principal-section" id="principal">
+        <div class="container">
+
+            <!-- Section Label -->
+            <div class="text-center wow fadeInDown" style="margin-bottom: 50px;">
+                <span class="section-label-pill">From the Principal's Desk</span>
+                <h2 style="font-size:clamp(28px,5vw,40px); font-weight:900; color:var(--color-dark); margin:0; letter-spacing:-0.5px;">
+                    A Message from the <span style="color:var(--color-secondary);">Principal</span>
+                </h2>
+                <div style="width:70px;height:3px;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));margin:16px auto 0;border-radius:2px;"></div>
+            </div>
+
+            <div class="row align-items-center">
+                <!-- Message — LEFT -->
+                <div class="col-lg-7 col-12 order-lg-1 order-2 wow fadeInLeft" data-wow-delay="100ms" style="padding-right:clamp(15px,5vw,55px);">
+                    <blockquote class="principal-blockquote">
+                        "Education should shape both the mind and the heart."
+                    </blockquote>
+                    <p class="principal-body-text">
+                        At Dnyanda English Medium School, we strive to nurture children who are knowledgeable, disciplined, confident, and compassionate. Along with academic excellence, we emphasize values such as honesty, respect, responsibility, kindness, and lifelong learning.
+                    </p>
+                    <p class="principal-body-text">
+                        Our dedicated team works closely with parents to create a positive environment where every child feels encouraged to grow, explore new ideas, and achieve their full potential.
+                    </p>
+                    <p class="principal-body-text" style="margin-bottom:28px;">
+                        Together, we are building a generation that is prepared not only for examinations but also for life — ready to face the world with courage, compassion, and confidence.
+                    </p>
+                    <div class="principal-signature">
+                        <div class="principal-signature-line"></div>
+                        <div>
+                            <div class="principal-sig-name">Principal</div>
+                            <div class="principal-sig-title">Dnyanda English Medium School</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo — RIGHT -->
+                <div class="col-lg-5 col-md-8 col-12 order-lg-2 order-1 mb-5 mb-lg-0 wow fadeInRight" data-wow-delay="200ms" style="margin-left:auto;margin-right:auto;">
+                    <div class="principal-photo-wrap">
+                        <img src="assets/images/principle.png" alt="Principal — Dnyanda English Medium School">
+                        <div class="principal-photo-badge">✦ Principal ✦</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Principal Section -->
+
+
+    <!-- ========================================================
+         LEADERSHIP TEAM SECTION
+         ======================================================== -->
+    <section class="leadership-team-section" id="leadership-team">
+        <div class="container">
+            <div class="text-center wow fadeInDown">
+                <span class="section-label-pill">Our People</span>
+                <h2 style="font-size:clamp(28px,5vw,40px); font-weight:900; color:var(--color-dark); margin:0; letter-spacing:-0.5px;">
+                    Our <span style="color:var(--color-secondary);">Leadership Team</span>
+                </h2>
+                <p style="font-size:16px; color:var(--text-color); max-width:540px; margin:14px auto 0; line-height:1.7;">
+                    Experienced educators and administrators working together to deliver excellence every day.
+                </p>
+                <div style="width:70px;height:3px;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));margin:18px auto 0;border-radius:2px;"></div>
+            </div>
+
+            <div class="team-grid">
+
+                <!-- Card: Treasurer -->
+                <div class="team-card wow fadeInUp" data-wow-delay="50ms">
+                    <div class="team-card-photo">
+                        <img src="assets/images/staff-placeholder.png" alt="Ranjita Somnath Mungase">
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-card-role">Treasurer</span>
+                        <div class="team-card-name">Ranjita Somnath Mungase</div>
+                        <p class="team-card-message">Managing financial operations and resources with diligence, transparency, and integrity to support the school's growth and infrastructure development.</p>
+                        <div class="team-card-divider"></div>
+                    </div>
+                </div>
+
+                <!-- Card: Trustee Vinaya -->
+                <div class="team-card wow fadeInUp" data-wow-delay="100ms">
+                    <div class="team-card-photo">
+                        <img src="assets/images/staff-placeholder.png" alt="Vinaya Sudhir Mungase">
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-card-role">Trustee</span>
+                        <div class="team-card-name">Vinaya Sudhir Mungase</div>
+                        <p class="team-card-message">Dedicated to guiding the institution's strategic vision, upholding core values, and supporting the school's mission to provide quality education.</p>
+                        <div class="team-card-divider"></div>
+                    </div>
+                </div>
+
+                <!-- Card: Trustee Supriya -->
+                <div class="team-card wow fadeInUp" data-wow-delay="150ms">
+                    <div class="team-card-photo">
+                        <img src="assets/images/staff-placeholder.png" alt="Supriya Vikas Mungase">
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-card-role">Trustee</span>
+                        <div class="team-card-name">Supriya Vikas Mungase</div>
+                        <p class="team-card-message">Committed to fostering a nurturing learning environment, ensuring academic standards, and guiding the school's strategic development.</p>
+                        <div class="team-card-divider"></div>
+                    </div>
+                </div>
+
+                <!-- Card: Trustee Somnath -->
+                <div class="team-card wow fadeInUp" data-wow-delay="200ms">
+                    <div class="team-card-photo">
+                        <img src="assets/images/staff-placeholder.png" alt="Somnath Vitthal Mungase">
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-card-role">Trustee</span>
+                        <div class="team-card-name">Somnath Vitthal Mungase</div>
+                        <p class="team-card-message">Working to build a strong community of parents, educators, and students while ensuring the school's vision of excellence is achieved.</p>
+                        <div class="team-card-divider"></div>
+                    </div>
+                </div>
+
+                <!-- Card: Trustee Sumeet -->
+                <div class="team-card wow fadeInUp" data-wow-delay="250ms">
+                    <div class="team-card-photo">
+                        <img src="assets/images/staff-placeholder.png" alt="Sumeet Sudhir Mungase">
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-card-role">Trustee</span>
+                        <div class="team-card-name">Sumeet Sudhir Mungase</div>
+                        <p class="team-card-message">Guiding institutional policies, promoting innovation, and supporting the school management in delivering world-class education.</p>
+                        <div class="team-card-divider"></div>
+                    </div>
+                </div>
+
+
+
+            </div><!-- /.team-grid -->
+        </div>
+    </section>
+    <!-- End Leadership Team Section -->
+
+
+    <!-- ========================================================
+         LEADERSHIP VALUES SECTION
+         ======================================================== -->
+    <section class="values-section" id="leadership-values">
+        <div class="container">
+            <div class="text-center wow fadeInDown">
+                <span class="section-label-pill">What We Stand For</span>
+                <h2 style="font-size:clamp(28px,5vw,40px); font-weight:900; color:var(--color-dark); margin:0; letter-spacing:-0.5px;">
+                    Our <span style="color:var(--color-secondary);">Leadership Values</span>
+                </h2>
+                <p style="font-size:16px; color:var(--text-color); max-width:520px; margin:14px auto 0; line-height:1.7;">
+                    The principles that guide every decision, every interaction, and every lesson at Dnyanda.
+                </p>
+                <div style="width:70px;height:3px;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));margin:18px auto 0;border-radius:2px;"></div>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card wow fadeInUp" data-wow-delay="50ms">
+                    <div class="value-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="value-title">Vision</h3>
+                    <p class="value-desc">We look beyond the present to build a future-ready institution where every student's potential is fully realised.</p>
+                </div>
+                <div class="value-card wow fadeInUp" data-wow-delay="100ms">
+                    <div class="value-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3 class="value-title">Integrity</h3>
+                    <p class="value-desc">Honesty, transparency, and ethical conduct form the bedrock of our leadership and institutional culture.</p>
+                </div>
+                <div class="value-card wow fadeInUp" data-wow-delay="150ms">
+                    <div class="value-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-desc">We continuously explore new teaching methods, technologies, and approaches to make learning engaging and effective.</p>
+                </div>
+                <div class="value-card wow fadeInUp" data-wow-delay="200ms">
+                    <div class="value-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                    <h3 class="value-title">Student First</h3>
+                    <p class="value-desc">Every policy, program, and decision is made with the student's best interest, well-being, and growth at heart.</p>
+                </div>
+                <div class="value-card wow fadeInUp" data-wow-delay="250ms">
+                    <div class="value-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="value-title">Academic Excellence</h3>
+                    <p class="value-desc">We set and maintain the highest academic standards while ensuring learning remains joyful, inclusive, and meaningful.</p>
+                </div>
+                <div class="value-card wow fadeInUp" data-wow-delay="300ms">
+                    <div class="value-icon"><i class="fa-solid fa-people-group"></i></div>
+                    <h3 class="value-title">Community</h3>
+                    <p class="value-desc">We believe school is a community — students, parents, staff, and society working together toward shared success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Values Section -->
+
+
+    <!-- ========================================================
+         CTA SECTION
+         ======================================================== -->
+    <section class="leadership-cta text-center" id="join-us">
+        <div class="container" style="position:relative; z-index:2;">
+            <h2 class="cta-title wow fadeInUp">Join Our School Family</h2>
+            <p class="cta-subtitle wow fadeInUp" data-wow-delay="100ms">
+                Become part of an institution where leadership, values, and excellence come together to shape extraordinary futures.
+            </p>
+            <div class="cta-buttons wow fadeInUp" data-wow-delay="200ms">
+                <a href="admission-requirements.html" class="cta-btn-primary">
+                    <i class="fa-solid fa-file-pen"></i> Apply for Admission
+                </a>
+                <a href="contact.html" class="cta-btn-outline">
+                    <i class="fa-solid fa-phone"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- End CTA Section -->
+
+
+    <!-- ========== Footer ========== -->
+    <div id="footer-placeholder"></div>
+    <!-- End Footer -->
+
+
+    <!-- ========== Scripts ========== -->
+    <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins/jquery.appear.js"></script>
+    <script src="assets/js/plugins/jquery.easing.min.js"></script>
+    <script src="assets/js/plugins/wow.min.js"></script>
+    <script src="assets/js/plugins/validnavs.js"></script>
+    <script src="assets/js/preloader.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/rs-main.js"></script>
+
+    <!-- Centralized Footer Loader -->
+    <script src="assets/js/footer-loader.js"></script>
+</body>
+
+</html>
