@@ -276,3 +276,13 @@
         transform: rotateY(0deg);
     }
 }
+
+/* ── Mobile: keep "DNYANDA" on a single line ── */
+@media (max-width: 575px) {
+    .edufix-preloader .animation-preloader .txt-loading {
+        font-size: 11.5vw;   /* scales with screen width — fits all 7 letters */
+        white-space: nowrap; /* never let letters wrap to next line */
+        letter-spacing: normal;
+    }
+}
+
